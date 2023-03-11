@@ -7029,17 +7029,17 @@ Partial Class AdminPanel
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlBackground.ResumeLayout(False)
         Me.tblMain.ResumeLayout(False)
-        Me.tblMain.PerformLayout
+        Me.tblMain.PerformLayout()
         Me.pnlTopBar.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.pnlTitleIcons.ResumeLayout(False)
         Me.TblTabsContainer.ResumeLayout(False)
-        Me.TblTabsContainer.PerformLayout
+        Me.TblTabsContainer.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.pnlMainPage.ResumeLayout(False)
         Me.TableLayoutPanel21.ResumeLayout(False)
         Me.Panel209.ResumeLayout(False)
-        Me.Panel209.PerformLayout
+        Me.Panel209.PerformLayout()
         Me.TableLayoutPanel22.ResumeLayout(False)
         Me.Panel210.ResumeLayout(False)
         Me.Panel211.ResumeLayout(False)
@@ -7064,7 +7064,7 @@ Partial Class AdminPanel
         Me.Panel208.ResumeLayout(False)
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.Panel64.ResumeLayout(False)
-        Me.Panel64.PerformLayout
+        Me.Panel64.PerformLayout()
         Me.TableLayoutPanel8.ResumeLayout(False)
         Me.Panel65.ResumeLayout(False)
         Me.Panel66.ResumeLayout(False)
@@ -7080,7 +7080,7 @@ Partial Class AdminPanel
         Me.Panel81.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout
+        Me.Panel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)
@@ -7096,16 +7096,16 @@ Partial Class AdminPanel
         Me.Panel34.ResumeLayout(False)
         Me.Panel35.ResumeLayout(False)
         Me.Panel36.ResumeLayout(False)
-        Me.Panel36.PerformLayout
+        Me.Panel36.PerformLayout()
         Me.Panel51.ResumeLayout(False)
-        Me.Panel51.PerformLayout
+        Me.Panel51.PerformLayout()
         Me.Panel52.ResumeLayout(False)
-        Me.Panel52.PerformLayout
+        Me.Panel52.PerformLayout()
         Me.Panel53.ResumeLayout(False)
-        Me.Panel53.PerformLayout
+        Me.Panel53.PerformLayout()
         Me.TableLayoutPanel30.ResumeLayout(False)
         Me.Panel274.ResumeLayout(False)
-        Me.Panel274.PerformLayout
+        Me.Panel274.PerformLayout()
         Me.TableLayoutPanel31.ResumeLayout(False)
         Me.Panel275.ResumeLayout(False)
         Me.Panel276.ResumeLayout(False)
@@ -7121,14 +7121,14 @@ Partial Class AdminPanel
         Me.Panel312.ResumeLayout(False)
         Me.Panel313.ResumeLayout(False)
         Me.Panel265.ResumeLayout(False)
-        Me.Panel265.PerformLayout
+        Me.Panel265.PerformLayout()
         Me.Panel255.ResumeLayout(False)
-        Me.Panel255.PerformLayout
+        Me.Panel255.PerformLayout()
         Me.Panel260.ResumeLayout(False)
-        Me.Panel260.PerformLayout
+        Me.Panel260.PerformLayout()
         Me.TableLayoutPanel13.ResumeLayout(False)
         Me.Panel84.ResumeLayout(False)
-        Me.Panel84.PerformLayout
+        Me.Panel84.PerformLayout()
         Me.TableLayoutPanel19.ResumeLayout(False)
         Me.Panel85.ResumeLayout(False)
         Me.Panel86.ResumeLayout(False)
@@ -7143,24 +7143,24 @@ Partial Class AdminPanel
         Me.Panel203.ResumeLayout(False)
         Me.Panel204.ResumeLayout(False)
         Me.Panel205.ResumeLayout(False)
-        Me.Panel205.PerformLayout
+        Me.Panel205.PerformLayout()
         Me.Panel59.ResumeLayout(False)
-        Me.Panel59.PerformLayout
+        Me.Panel59.PerformLayout()
         Me.Panel60.ResumeLayout(False)
         Me.Panel61.ResumeLayout(False)
         Me.Panel62.ResumeLayout(False)
         Me.Panel63.ResumeLayout(False)
-        Me.Panel63.PerformLayout
+        Me.Panel63.PerformLayout()
         Me.Panel54.ResumeLayout(False)
-        Me.Panel54.PerformLayout
+        Me.Panel54.PerformLayout()
         Me.Panel55.ResumeLayout(False)
         Me.Panel56.ResumeLayout(False)
         Me.Panel57.ResumeLayout(False)
         Me.Panel58.ResumeLayout(False)
-        Me.Panel58.PerformLayout
+        Me.Panel58.PerformLayout()
         Me.tblGroupBox.ResumeLayout(False)
         Me.Panel168.ResumeLayout(False)
-        Me.Panel168.PerformLayout
+        Me.Panel168.PerformLayout()
         Me.TableLayoutPanel14.ResumeLayout(False)
         Me.Panel173.ResumeLayout(False)
         Me.Panel174.ResumeLayout(False)
@@ -7182,7 +7182,7 @@ Partial Class AdminPanel
         Me.pnlConfirmation.ResumeLayout(False)
         Me.TableLayoutPanel27.ResumeLayout(False)
         Me.Panel285.ResumeLayout(False)
-        Me.Panel285.PerformLayout
+        Me.Panel285.PerformLayout()
         Me.TableLayoutPanel28.ResumeLayout(False)
         Me.Panel286.ResumeLayout(False)
         Me.Panel287.ResumeLayout(False)
@@ -7197,7 +7197,7 @@ Partial Class AdminPanel
         Me.Panel340.ResumeLayout(False)
         Me.Panel341.ResumeLayout(False)
         Me.Panel342.ResumeLayout(False)
-        Me.Panel342.PerformLayout
+        Me.Panel342.PerformLayout()
         Me.Panel346.ResumeLayout(False)
         Me.Panel347.ResumeLayout(False)
         Me.Panel343.ResumeLayout(False)
@@ -7206,7 +7206,7 @@ Partial Class AdminPanel
         Me.pnlNotification.ResumeLayout(False)
         Me.TableLayoutPanel39.ResumeLayout(False)
         Me.Panel374.ResumeLayout(False)
-        Me.Panel374.PerformLayout
+        Me.Panel374.PerformLayout()
         Me.TableLayoutPanel40.ResumeLayout(False)
         Me.Panel375.ResumeLayout(False)
         Me.Panel376.ResumeLayout(False)
@@ -7221,14 +7221,14 @@ Partial Class AdminPanel
         Me.Panel390.ResumeLayout(False)
         Me.Panel391.ResumeLayout(False)
         Me.Panel392.ResumeLayout(False)
-        Me.Panel392.PerformLayout
+        Me.Panel392.PerformLayout()
         Me.Panel393.ResumeLayout(False)
         Me.Panel394.ResumeLayout(False)
         Me.Panel395.ResumeLayout(False)
         Me.pnlSettingsPage.ResumeLayout(False)
         Me.TableLayoutPanel24.ResumeLayout(False)
         Me.Panel232.ResumeLayout(False)
-        Me.Panel232.PerformLayout
+        Me.Panel232.PerformLayout()
         Me.TableLayoutPanel25.ResumeLayout(False)
         Me.Panel233.ResumeLayout(False)
         Me.Panel234.ResumeLayout(False)
@@ -7243,19 +7243,19 @@ Partial Class AdminPanel
         Me.Panel270.ResumeLayout(False)
         Me.Panel271.ResumeLayout(False)
         Me.Panel272.ResumeLayout(False)
-        Me.Panel272.PerformLayout
+        Me.Panel272.PerformLayout()
         Me.Panel289.ResumeLayout(False)
         Me.Panel290.ResumeLayout(False)
         Me.Panel273.ResumeLayout(False)
-        Me.Panel273.PerformLayout
+        Me.Panel273.PerformLayout()
         Me.Panel280.ResumeLayout(False)
         Me.Panel281.ResumeLayout(False)
         Me.Panel282.ResumeLayout(False)
         Me.Panel283.ResumeLayout(False)
-        Me.Panel283.PerformLayout
+        Me.Panel283.PerformLayout()
         Me.TableLayoutPanel33.ResumeLayout(False)
         Me.Panel315.ResumeLayout(False)
-        Me.Panel315.PerformLayout
+        Me.Panel315.PerformLayout()
         Me.TableLayoutPanel34.ResumeLayout(False)
         Me.Panel316.ResumeLayout(False)
         Me.Panel319.ResumeLayout(False)
@@ -7276,7 +7276,7 @@ Partial Class AdminPanel
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel16.ResumeLayout(False)
         Me.Panel236.ResumeLayout(False)
-        Me.Panel236.PerformLayout
+        Me.Panel236.PerformLayout()
         Me.TableLayoutPanel17.ResumeLayout(False)
         Me.Panel237.ResumeLayout(False)
         Me.Panel238.ResumeLayout(False)
@@ -7292,7 +7292,7 @@ Partial Class AdminPanel
         Me.Panel253.ResumeLayout(False)
         Me.Panel254.ResumeLayout(False)
         Me.Panel314.ResumeLayout(False)
-        Me.Panel314.PerformLayout
+        Me.Panel314.PerformLayout()
         Me.Panel317.ResumeLayout(False)
         Me.Panel318.ResumeLayout(False)
         Me.pnlMiscPage.ResumeLayout(False)
@@ -7302,7 +7302,7 @@ Partial Class AdminPanel
         Me.Panel172.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel27.ResumeLayout(False)
-        Me.Panel27.PerformLayout
+        Me.Panel27.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.Panel28.ResumeLayout(False)
         Me.Panel29.ResumeLayout(False)
@@ -7317,14 +7317,14 @@ Partial Class AdminPanel
         Me.Panel48.ResumeLayout(False)
         Me.Panel49.ResumeLayout(False)
         Me.Panel50.ResumeLayout(False)
-        Me.Panel50.PerformLayout
+        Me.Panel50.PerformLayout()
         Me.Panel163.ResumeLayout(False)
-        Me.Panel163.PerformLayout
+        Me.Panel163.PerformLayout()
         Me.Panel164.ResumeLayout(False)
         Me.Panel165.ResumeLayout(False)
         Me.Panel166.ResumeLayout(False)
         Me.Panel167.ResumeLayout(False)
-        Me.Panel167.PerformLayout
+        Me.Panel167.PerformLayout()
         Me.Panel158.ResumeLayout(False)
         Me.Panel159.ResumeLayout(False)
         Me.Panel160.ResumeLayout(False)
@@ -7359,7 +7359,7 @@ Partial Class AdminPanel
         Me.Panel95.ResumeLayout(False)
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.Panel97.ResumeLayout(False)
-        Me.Panel97.PerformLayout
+        Me.Panel97.PerformLayout()
         Me.TableLayoutPanel11.ResumeLayout(False)
         Me.Panel98.ResumeLayout(False)
         Me.Panel99.ResumeLayout(False)
