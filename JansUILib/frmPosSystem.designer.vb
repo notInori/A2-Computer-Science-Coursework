@@ -645,7 +645,6 @@ Partial Class POSSystem
         Me.tblMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.tblMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
         Me.tblMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tblMain.Size = New System.Drawing.Size(1434, 894)
         Me.tblMain.TabIndex = 2
         '
@@ -887,7 +886,7 @@ Partial Class POSSystem
         '
         'Panel276
         '
-        Me.Panel276.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel276.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel276.Controls.Add(Me.Panel277)
         Me.Panel276.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel276.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -996,7 +995,7 @@ Partial Class POSSystem
         '
         'Panel302
         '
-        Me.Panel302.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel302.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel302.Controls.Add(Me.Panel305)
         Me.Panel302.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel302.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1073,7 +1072,7 @@ Partial Class POSSystem
         '
         'Panel311
         '
-        Me.Panel311.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel311.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel311.Controls.Add(Me.Panel312)
         Me.Panel311.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel311.Location = New System.Drawing.Point(1, 0)
@@ -1250,7 +1249,7 @@ Partial Class POSSystem
         '
         'Panel231
         '
-        Me.Panel231.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel231.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel231.Controls.Add(Me.Panel232)
         Me.Panel231.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel231.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1359,7 +1358,7 @@ Partial Class POSSystem
         '
         'Panel258
         '
-        Me.Panel258.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel258.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel258.Controls.Add(Me.Panel259)
         Me.Panel258.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel258.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1436,7 +1435,7 @@ Partial Class POSSystem
         '
         'Panel267
         '
-        Me.Panel267.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel267.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel267.Controls.Add(Me.Panel268)
         Me.Panel267.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel267.Location = New System.Drawing.Point(1, 0)
@@ -1484,7 +1483,7 @@ Partial Class POSSystem
         '
         'Panel273
         '
-        Me.Panel273.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel273.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel273.Controls.Add(Me.Button6)
         Me.Panel273.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel273.Location = New System.Drawing.Point(1, 1)
@@ -1524,7 +1523,7 @@ Partial Class POSSystem
         '
         'Panel271
         '
-        Me.Panel271.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel271.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel271.Controls.Add(Me.Button5)
         Me.Panel271.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel271.Location = New System.Drawing.Point(1, 1)
@@ -1615,7 +1614,7 @@ Partial Class POSSystem
         '
         'Panel282
         '
-        Me.Panel282.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel282.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel282.Controls.Add(Me.Panel283)
         Me.Panel282.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel282.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1724,7 +1723,7 @@ Partial Class POSSystem
         '
         'Panel289
         '
-        Me.Panel289.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel289.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel289.Controls.Add(Me.Panel290)
         Me.Panel289.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel289.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1801,7 +1800,7 @@ Partial Class POSSystem
         '
         'Panel296
         '
-        Me.Panel296.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel296.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel296.Controls.Add(Me.Panel297)
         Me.Panel296.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel296.Location = New System.Drawing.Point(1, 0)
@@ -1848,7 +1847,7 @@ Partial Class POSSystem
         '
         'Panel304
         '
-        Me.Panel304.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel304.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel304.Controls.Add(Me.Button11)
         Me.Panel304.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel304.Location = New System.Drawing.Point(1, 1)
@@ -1938,7 +1937,7 @@ Partial Class POSSystem
         '
         'Panel86
         '
-        Me.Panel86.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel86.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel86.Controls.Add(Me.Panel87)
         Me.Panel86.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel86.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -2047,7 +2046,7 @@ Partial Class POSSystem
         '
         'Panel196
         '
-        Me.Panel196.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel196.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel196.Controls.Add(Me.Panel197)
         Me.Panel196.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel196.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -2124,7 +2123,7 @@ Partial Class POSSystem
         '
         'Panel203
         '
-        Me.Panel203.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel203.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel203.Controls.Add(Me.Panel204)
         Me.Panel203.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel203.Location = New System.Drawing.Point(1, 0)
@@ -2172,7 +2171,7 @@ Partial Class POSSystem
         '
         'Panel11
         '
-        Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel11.Controls.Add(Me.Panel12)
         Me.Panel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel11.Location = New System.Drawing.Point(1, 1)
@@ -2218,7 +2217,7 @@ Partial Class POSSystem
         '
         'pnlUsernameBorder
         '
-        Me.pnlUsernameBorder.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlUsernameBorder.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.pnlUsernameBorder.Controls.Add(Me.pnlUsernameInnerBlackLine)
         Me.pnlUsernameBorder.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlUsernameBorder.Location = New System.Drawing.Point(1, 1)
@@ -2390,7 +2389,7 @@ Partial Class POSSystem
         '
         'Panel174
         '
-        Me.Panel174.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel174.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel174.Controls.Add(Me.Panel175)
         Me.Panel174.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel174.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -2499,7 +2498,7 @@ Partial Class POSSystem
         '
         'Panel181
         '
-        Me.Panel181.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel181.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel181.Controls.Add(Me.Panel182)
         Me.Panel181.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel181.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -2576,7 +2575,7 @@ Partial Class POSSystem
         '
         'Panel188
         '
-        Me.Panel188.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel188.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel188.Controls.Add(Me.Panel189)
         Me.Panel188.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel188.Location = New System.Drawing.Point(1, 0)
@@ -2623,7 +2622,7 @@ Partial Class POSSystem
         '
         'Panel15
         '
-        Me.Panel15.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel15.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel15.Controls.Add(Me.Panel16)
         Me.Panel15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel15.Location = New System.Drawing.Point(1, 1)
