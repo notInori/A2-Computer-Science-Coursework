@@ -17,6 +17,7 @@ Public Class POSSystem
     'Database Variables Init
     Dim myReader As OleDbDataReader
     ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
+    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\ Menu.accdb")
 
     '---Winforms Init' 
 
@@ -41,6 +42,22 @@ Public Class POSSystem
     Private Sub SaveConfig()
         Dim cmd As New OleDbCommand("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID, conn)
         cmd.ExecuteNonQuery()
+    End Sub
+
+    'Load Menu Items
+    Private Sub LoadMenuItems()
+        menuconn.Open()
+        Dim MenuCatergories As List(Of Object)
+        Dim cmd As New OleDbCommand("SELECT Catergory FROM Menu", menuconn)
+        myReader = cmd.ExecuteReader
+        While myReader.Read()
+            Dim value As String = CStr(myReader.GetValue(0))
+            If Not MenuCatergories.Contains(value) Then
+                'Go
+                MenuCatergories.Add(value)
+            End If
+        End While
+
     End Sub
 
     'Init tab system and load accent color
@@ -95,7 +112,7 @@ Public Class POSSystem
 
     '---Change Colourisable Accents in UI
 
-    Private Sub UpdateAccent()
+    Public Sub UpdateAccent()
         'Groupbox Topbar Color Updating
         Panel8.BackColor = accentColor
         For Each menuscreen As Control In Panel1.Controls.OfType(Of Panel)
@@ -118,6 +135,7 @@ Public Class POSSystem
 
         'Update Color Picker UI Preview
         pnlColorPicker.BackColor = accentColor
+        ColorPicker.UpdateAccent()
 
         'Tab Highlight Accent Updating
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)
@@ -135,10 +153,10 @@ Public Class POSSystem
 
     'UI Accent Colour Picker
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
-        If (cDialog.ShowDialog() = DialogResult.OK) Then
-            accentColor = cDialog.Color ' update with user selected color.
+        If Not ColorPicker.IsHandleCreated Then
+            ColorPicker.Show()
         End If
-        saveConfig()
+        SaveConfig()
         UpdateAccent()
     End Sub
 
