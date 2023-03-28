@@ -149,6 +149,12 @@
     <Compile Include="frmAdminPanel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmColorPicker.designer.vb">
+      <DependentUpon>frmColorPicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmColorPicker.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPosSystem.designer.vb">
       <DependentUpon>frmPosSystem.vb</DependentUpon>
     </Compile>
@@ -186,6 +192,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAdminPanel.resx">
       <DependentUpon>frmAdminPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmColorPicker.resx">
+      <DependentUpon>frmColorPicker.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPosSystem.resx">
       <DependentUpon>frmPosSystem.vb</DependentUpon>
