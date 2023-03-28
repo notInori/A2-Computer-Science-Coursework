@@ -17,6 +17,7 @@ Public Class POSSystem
     'Database Variables Init
     Dim myReader As OleDbDataReader
     ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
+    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\ Menu.accdb")
 
     '---Winforms Init' 
 
@@ -41,6 +42,22 @@ Public Class POSSystem
     Private Sub SaveConfig()
         Dim cmd As New OleDbCommand("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID, conn)
         cmd.ExecuteNonQuery()
+    End Sub
+
+    'Load Menu Items
+    Private Sub LoadMenuItems()
+        menuconn.Open()
+        Dim MenuCatergories As List(Of Object)
+        Dim cmd As New OleDbCommand("SELECT Catergory FROM Menu", menuconn)
+        myReader = cmd.ExecuteReader
+        While myReader.Read()
+            Dim value As String = CStr(myReader.GetValue(0))
+            If Not MenuCatergories.Contains(value) Then
+                'Go
+                MenuCatergories.Add(value)
+            End If
+        End While
+
     End Sub
 
     'Init tab system and load accent color

@@ -107,12 +107,12 @@ Partial Class AuthLogin
         Me.Panel391 = New System.Windows.Forms.Panel()
         Me.Panel392 = New System.Windows.Forms.Panel()
         Me.Panel393 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.lblNotifcationInfo = New System.Windows.Forms.Label()
         Me.Panel394 = New System.Windows.Forms.Panel()
         Me.Panel395 = New System.Windows.Forms.Panel()
         Me.btnContinueNotification = New System.Windows.Forms.Button()
         Me.pnlBlackOutline = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlBackground.SuspendLayout()
         Me.tblWindow.SuspendLayout()
         Me.pnlTopBar.SuspendLayout()
@@ -203,7 +203,6 @@ Partial Class AuthLogin
         Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
         Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tblWindow.Size = New System.Drawing.Size(494, 354)
         Me.tblWindow.TabIndex = 2
         '
@@ -288,7 +287,7 @@ Partial Class AuthLogin
         Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExit.Font = New System.Drawing.Font("Microsoft Tai Le", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.btnExit.ForeColor = System.Drawing.Color.White
         Me.btnExit.Location = New System.Drawing.Point(459, 0)
         Me.btnExit.MaximumSize = New System.Drawing.Size(35, 35)
         Me.btnExit.MinimumSize = New System.Drawing.Size(35, 35)
@@ -301,7 +300,7 @@ Partial Class AuthLogin
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 39)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -312,7 +311,6 @@ Partial Class AuthLogin
         'Panel28
         '
         Me.Panel28.Controls.Add(Me.pnlWindowContents)
-        Me.Panel28.Controls.Add(Me.pnlNotification)
         Me.Panel28.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel28.Location = New System.Drawing.Point(0, 40)
         Me.Panel28.Margin = New System.Windows.Forms.Padding(0)
@@ -323,6 +321,7 @@ Partial Class AuthLogin
         'pnlWindowContents
         '
         Me.pnlWindowContents.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.pnlWindowContents.Controls.Add(Me.pnlNotification)
         Me.pnlWindowContents.Controls.Add(Me.Panel5)
         Me.pnlWindowContents.Controls.Add(Me.Panel314)
         Me.pnlWindowContents.Controls.Add(Me.tblMainGroupBox)
@@ -478,7 +477,7 @@ Partial Class AuthLogin
         '
         'Panel20
         '
-        Me.Panel20.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel20.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel20.Controls.Add(Me.Panel21)
         Me.Panel20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel20.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -586,7 +585,7 @@ Partial Class AuthLogin
         '
         'Panel16
         '
-        Me.Panel16.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel16.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel16.Controls.Add(Me.Panel17)
         Me.Panel16.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel16.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -662,7 +661,7 @@ Partial Class AuthLogin
         '
         'pnlGroupBoxOutline
         '
-        Me.pnlGroupBoxOutline.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlGroupBoxOutline.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.pnlGroupBoxOutline.Controls.Add(Me.pnlGroupBoxInnerBlackLine)
         Me.pnlGroupBoxOutline.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlGroupBoxOutline.Location = New System.Drawing.Point(1, 0)
@@ -737,7 +736,7 @@ Partial Class AuthLogin
         '
         'Panel12
         '
-        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel12.Controls.Add(Me.Panel13)
         Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel12.Location = New System.Drawing.Point(1, 1)
@@ -822,7 +821,7 @@ Partial Class AuthLogin
         '
         'pnlUsernameBorder
         '
-        Me.pnlUsernameBorder.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlUsernameBorder.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.pnlUsernameBorder.Controls.Add(Me.pnlUsernameInnerBlackLine)
         Me.pnlUsernameBorder.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlUsernameBorder.Location = New System.Drawing.Point(1, 1)
@@ -882,7 +881,7 @@ Partial Class AuthLogin
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel4.Controls.Add(Me.btnLogin)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(1, 1)
@@ -929,7 +928,7 @@ Partial Class AuthLogin
         '
         Me.pnlNotification.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.pnlNotification.Controls.Add(Me.TableLayoutPanel39)
-        Me.pnlNotification.Location = New System.Drawing.Point(0, 303)
+        Me.pnlNotification.Location = New System.Drawing.Point(0, 329)
         Me.pnlNotification.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlNotification.Name = "pnlNotification"
         Me.pnlNotification.Padding = New System.Windows.Forms.Padding(5)
@@ -1000,7 +999,7 @@ Partial Class AuthLogin
         '
         'Panel376
         '
-        Me.Panel376.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel376.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel376.Controls.Add(Me.Panel377)
         Me.Panel376.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel376.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1109,7 +1108,7 @@ Partial Class AuthLogin
         '
         'Panel383
         '
-        Me.Panel383.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel383.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel383.Controls.Add(Me.Panel384)
         Me.Panel383.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel383.ForeColor = System.Drawing.SystemColors.ControlLight
@@ -1186,7 +1185,7 @@ Partial Class AuthLogin
         '
         'Panel390
         '
-        Me.Panel390.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel390.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel390.Controls.Add(Me.Panel391)
         Me.Panel390.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel390.Location = New System.Drawing.Point(1, 0)
@@ -1232,6 +1231,20 @@ Partial Class AuthLogin
         Me.Panel393.Size = New System.Drawing.Size(443, 50)
         Me.Panel393.TabIndex = 21
         '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(0, 24)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(443, 24)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "Username or Password is invalid"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'lblNotifcationInfo
         '
         Me.lblNotifcationInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -1259,7 +1272,7 @@ Partial Class AuthLogin
         '
         'Panel395
         '
-        Me.Panel395.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Panel395.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel395.Controls.Add(Me.btnContinueNotification)
         Me.Panel395.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel395.Location = New System.Drawing.Point(1, 1)
@@ -1297,25 +1310,11 @@ Partial Class AuthLogin
         Me.pnlBlackOutline.Size = New System.Drawing.Size(496, 356)
         Me.pnlBlackOutline.TabIndex = 1
         '
-        'Label3
-        '
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label3.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(0, 24)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(443, 24)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Username or Password is invalid"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
         'AuthLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(500, 360)
         Me.Controls.Add(Me.pnlBlackOutline)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
