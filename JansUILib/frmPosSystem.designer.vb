@@ -616,13 +616,14 @@ Partial Class POSSystem
         Me.TblTabsContainer.Controls.Add(Me.lblTabSel1, 0, 0)
         Me.TblTabsContainer.Controls.Add(Me.pnlTabHighlight1, 0, 1)
         Me.TblTabsContainer.Controls.Add(Me.pnlTabHighlight2, 1, 1)
+        Me.TblTabsContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblTabsContainer.Location = New System.Drawing.Point(0, 44)
         Me.TblTabsContainer.Margin = New System.Windows.Forms.Padding(0)
         Me.TblTabsContainer.Name = "TblTabsContainer"
         Me.TblTabsContainer.RowCount = 2
         Me.TblTabsContainer.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TblTabsContainer.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
-        Me.TblTabsContainer.Size = New System.Drawing.Size(282, 40)
+        Me.TblTabsContainer.Size = New System.Drawing.Size(1434, 40)
         Me.TblTabsContainer.TabIndex = 6
         '
         'lblTabSel2
