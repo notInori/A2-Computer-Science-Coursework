@@ -14,10 +14,18 @@ Public Class POSSystem
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
     ReadOnly cDialog As New ColorDialog()
 
-    'Database Variables Init
+    '---Database Variables Init
+
+    'Form Wide Datareader
     Dim myReader As OleDbDataReader
+
+    'User Data Database Connection
     ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
+
+    'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
+
+    Dim MenuCatergories As New List(Of String)()
 
     '---Winforms Init' 
 
@@ -48,7 +56,7 @@ Public Class POSSystem
     Private Sub LoadMenuItems()
         menuconn.Open()
         'Dim MenuCatergories As List(Of Object)
-        Dim MenuCatergories As New List(Of String)()
+
         Dim cmd As New OleDbCommand("SELECT Category FROM Menu", menuconn)
         myReader = cmd.ExecuteReader
         While myReader.Read()
