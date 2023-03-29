@@ -83,6 +83,7 @@ Public Class POSSystem
             tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
             AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
                                            Dim currentColumn As Integer = tblMenuTabsContainer.GetColumn(sender)
+                                           ChangeMenuTab(MenuCatergories(currentColumn - 1))
                                            For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Panel)
                                                If tblMenuTabsContainer.GetColumn(cntrl) = currentColumn Then
                                                    cntrl.BackColor = Color.White
@@ -97,6 +98,7 @@ Public Class POSSystem
                                                    cntrl.ForeColor = Color.FromArgb(150, 150, 150)
                                                End If
                                            Next
+
                                        End Sub
         Next
         tblMenuTabsContainer.ColumnCount += 2
@@ -115,6 +117,11 @@ Public Class POSSystem
         LoadMenuItems()
     End Sub
 
+
+    '---Menu Tab Changing System
+    Private Sub ChangeMenuTab(newTab As String)
+
+    End Sub
     '---Tab Changing System
 
     Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click
