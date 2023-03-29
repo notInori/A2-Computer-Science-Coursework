@@ -160,14 +160,8 @@ Partial Class AdminPanel
         Me.Panel312 = New System.Windows.Forms.Panel()
         Me.Panel313 = New System.Windows.Forms.Panel()
         Me.Panel265 = New System.Windows.Forms.Panel()
-        Me.Label34 = New System.Windows.Forms.Label()
+        Me.LblTotalHours = New System.Windows.Forms.Label()
         Me.Label40 = New System.Windows.Forms.Label()
-        Me.Panel255 = New System.Windows.Forms.Panel()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Panel260 = New System.Windows.Forms.Panel()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel84 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
@@ -476,8 +470,6 @@ Partial Class AdminPanel
         Me.Panel312.SuspendLayout()
         Me.Panel313.SuspendLayout()
         Me.Panel265.SuspendLayout()
-        Me.Panel255.SuspendLayout()
-        Me.Panel260.SuspendLayout()
         Me.TableLayoutPanel13.SuspendLayout()
         Me.Panel84.SuspendLayout()
         Me.TableLayoutPanel19.SuspendLayout()
@@ -2360,8 +2352,6 @@ Partial Class AdminPanel
         '
         Me.Panel313.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.Panel313.Controls.Add(Me.Panel265)
-        Me.Panel313.Controls.Add(Me.Panel255)
-        Me.Panel313.Controls.Add(Me.Panel260)
         Me.Panel313.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel313.Location = New System.Drawing.Point(1, 0)
         Me.Panel313.Margin = New System.Windows.Forms.Padding(5)
@@ -2372,7 +2362,7 @@ Partial Class AdminPanel
         '
         'Panel265
         '
-        Me.Panel265.Controls.Add(Me.Label34)
+        Me.Panel265.Controls.Add(Me.LblTotalHours)
         Me.Panel265.Controls.Add(Me.Label40)
         Me.Panel265.Location = New System.Drawing.Point(10, 5)
         Me.Panel265.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
@@ -2380,20 +2370,20 @@ Partial Class AdminPanel
         Me.Panel265.Size = New System.Drawing.Size(443, 24)
         Me.Panel265.TabIndex = 15
         '
-        'Label34
+        'LblTotalHours
         '
-        Me.Label34.AutoSize = True
-        Me.Label34.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label34.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label34.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label34.Location = New System.Drawing.Point(385, 0)
-        Me.Label34.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(58, 24)
-        Me.Label34.TabIndex = 10
-        Me.Label34.Text = "0Hrs"
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LblTotalHours.AutoSize = True
+        Me.LblTotalHours.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.LblTotalHours.Dock = System.Windows.Forms.DockStyle.Right
+        Me.LblTotalHours.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTotalHours.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.LblTotalHours.Location = New System.Drawing.Point(385, 0)
+        Me.LblTotalHours.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
+        Me.LblTotalHours.Name = "LblTotalHours"
+        Me.LblTotalHours.Size = New System.Drawing.Size(58, 24)
+        Me.LblTotalHours.TabIndex = 10
+        Me.LblTotalHours.Text = "0Hrs"
+        Me.LblTotalHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label40
         '
@@ -2405,90 +2395,10 @@ Partial Class AdminPanel
         Me.Label40.Location = New System.Drawing.Point(0, 0)
         Me.Label40.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(238, 24)
+        Me.Label40.Size = New System.Drawing.Size(286, 24)
         Me.Label40.TabIndex = 9
-        Me.Label40.Text = "Total Hours [WEEK]:"
+        Me.Label40.Text = "Total Hours [ALL TIME]:"
         Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Panel255
-        '
-        Me.Panel255.Controls.Add(Me.Label37)
-        Me.Panel255.Controls.Add(Me.Label38)
-        Me.Panel255.Location = New System.Drawing.Point(10, 63)
-        Me.Panel255.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
-        Me.Panel255.Name = "Panel255"
-        Me.Panel255.Size = New System.Drawing.Size(443, 24)
-        Me.Panel255.TabIndex = 17
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label37.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label37.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label37.Location = New System.Drawing.Point(385, 0)
-        Me.Label37.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(58, 24)
-        Me.Label37.TabIndex = 11
-        Me.Label37.Text = "0Hrs"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label38.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label38.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label38.Location = New System.Drawing.Point(0, 0)
-        Me.Label38.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(286, 24)
-        Me.Label38.TabIndex = 9
-        Me.Label38.Text = "Total Hours [All Time]:"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Panel260
-        '
-        Me.Panel260.Controls.Add(Me.Label35)
-        Me.Panel260.Controls.Add(Me.Label39)
-        Me.Panel260.Location = New System.Drawing.Point(10, 34)
-        Me.Panel260.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
-        Me.Panel260.Name = "Panel260"
-        Me.Panel260.Size = New System.Drawing.Size(443, 24)
-        Me.Panel260.TabIndex = 16
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label35.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label35.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label35.Location = New System.Drawing.Point(385, 0)
-        Me.Label35.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(58, 24)
-        Me.Label35.TabIndex = 11
-        Me.Label35.Text = "0Hrs"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label39.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label39.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Label39.Location = New System.Drawing.Point(0, 0)
-        Me.Label39.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(250, 24)
-        Me.Label39.TabIndex = 9
-        Me.Label39.Text = "Total Hours [Month]:"
-        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel13
         '
@@ -5361,10 +5271,6 @@ Partial Class AdminPanel
         Me.Panel313.ResumeLayout(False)
         Me.Panel265.ResumeLayout(False)
         Me.Panel265.PerformLayout()
-        Me.Panel255.ResumeLayout(False)
-        Me.Panel255.PerformLayout()
-        Me.Panel260.ResumeLayout(False)
-        Me.Panel260.PerformLayout()
         Me.TableLayoutPanel13.ResumeLayout(False)
         Me.Panel84.ResumeLayout(False)
         Me.Panel84.PerformLayout()
@@ -5557,10 +5463,6 @@ Partial Class AdminPanel
     Friend WithEvents lblTitle As Label
     Friend WithEvents tmrMain As Timer
     Friend WithEvents pnlMainPage As Panel
-    Friend WithEvents Panel255 As Panel
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Panel260 As Panel
-    Friend WithEvents Label39 As Label
     Friend WithEvents Panel265 As Panel
     Friend WithEvents Label40 As Label
     Friend WithEvents Button2 As Button
@@ -5587,9 +5489,7 @@ Partial Class AdminPanel
     Friend WithEvents Panel203 As Panel
     Friend WithEvents Panel204 As Panel
     Friend WithEvents Panel205 As Panel
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label35 As Label
+    Friend WithEvents LblTotalHours As Label
     Friend WithEvents TableLayoutPanel30 As TableLayoutPanel
     Friend WithEvents Panel274 As Panel
     Friend WithEvents TableLayoutPanel31 As TableLayoutPanel

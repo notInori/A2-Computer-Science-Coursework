@@ -182,7 +182,9 @@ Public Class AdminPanel
         If lbxUsernames.SelectedItem <> "" Then
             selectedUID = SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & lbxUsernames.SelectedItem.ToString & "')")
             TbxUsername.Text = lbxUsernames.SelectedItem
-            TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE (Username='" & lbxUsernames.SelectedItem.ToString & "')")
+            TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)
+            LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
+
         End If
     End Sub
 
