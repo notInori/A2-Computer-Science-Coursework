@@ -110,6 +110,21 @@ Public Class POSSystem
 
     End Sub
 
+    '---Notification Prompts
+
+    'Full screen notifications
+    Private Sub Notifcation(notifcationText As String)
+        lblNotifcationInfo.Text = notifcationText
+        pnlNotification.Dock = DockStyle.Fill
+        pnlNotification.BringToFront()
+    End Sub
+
+    'Dismiss Notification Button
+    Private Sub DimissNotification(sender As Object, e As EventArgs) Handles btnContinueNotification.Click
+        pnlNotification.Dock = DockStyle.None
+        pnlNotification.Height = 0
+    End Sub
+
     '---Change Colourisable Accents in UI
 
     Public Sub UpdateAccent()
@@ -174,10 +189,16 @@ Public Class POSSystem
     End Sub
 
     Private Sub BtnSavePassword_Click(sender As Object, e As EventArgs) Handles BtnSavePassword.Click
-        If tbxPassword.Text <> "" Then
+        If tbxPassword.Text <> "" And InStr(tbxPassword.Text, " ") = 0 Then
             Dim cmd As New OleDbCommand("UPDATE UserAuth SET PIN='" & tbxPassword.Text & "' WHERE UID=" & UID, conn)
-
             cmd.ExecuteNonQuery()
+            Notifcation("New password was set successfully!")
+            tbxPassword.Clear()
+        ElseIf InStr(tbxPassword.Text, " ") > 0 Then
+            Notifcation("Error: Passwords can not have spaces in them!")
+            tbxPassword.Text = tbxPassword.Text.Replace(" ", "")
+        Else
+            Notifcation("Error: Password field can not be empty!")
         End If
     End Sub
 End Class
