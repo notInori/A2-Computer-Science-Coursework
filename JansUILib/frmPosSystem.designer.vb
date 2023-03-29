@@ -309,8 +309,6 @@ Partial Class POSSystem
         Me.Panel88 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.tmrMain = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.pnlBackground.SuspendLayout()
         Me.tblMain.SuspendLayout()
         Me.pnlTopBar.SuspendLayout()
@@ -2144,15 +2142,11 @@ Partial Class POSSystem
         '
         'tblMenuTabsContainer
         '
-        Me.tblMenuTabsContainer.ColumnCount = 3
+        Me.tblMenuTabsContainer.ColumnCount = 1
         Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblMenuTabsContainer.Controls.Add(Me.Label4, 1, 0)
         Me.tblMenuTabsContainer.Controls.Add(Me.Label7, 0, 0)
         Me.tblMenuTabsContainer.Controls.Add(Me.Panel3, 0, 1)
-        Me.tblMenuTabsContainer.Controls.Add(Me.Panel5, 1, 1)
         Me.tblMenuTabsContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tblMenuTabsContainer.Location = New System.Drawing.Point(1, 1)
         Me.tblMenuTabsContainer.Margin = New System.Windows.Forms.Padding(0)
@@ -2186,7 +2180,7 @@ Partial Class POSSystem
         Me.Panel3.Location = New System.Drawing.Point(0, 39)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(68, 1)
+        Me.Panel3.Size = New System.Drawing.Size(918, 1)
         Me.Panel3.TabIndex = 0
         Me.Panel3.Tag = "tabHighlight"
         '
@@ -4060,33 +4054,6 @@ Partial Class POSSystem
         '
         Me.tmrMain.Enabled = True
         '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.White
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(68, 39)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(68, 1)
-        Me.Panel5.TabIndex = 6
-        Me.Panel5.Tag = "tabHighlight"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(68, 0)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Padding = New System.Windows.Forms.Padding(5)
-        Me.Label4.Size = New System.Drawing.Size(68, 39)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Tab2"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'POSSystem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4600,6 +4567,4 @@ Partial Class POSSystem
     Friend WithEvents Panel394 As Panel
     Friend WithEvents Panel395 As Panel
     Friend WithEvents btnContinueNotification As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Panel5 As Panel
 End Class

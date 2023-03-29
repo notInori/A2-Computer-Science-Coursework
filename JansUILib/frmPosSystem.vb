@@ -13,6 +13,7 @@ Public Class POSSystem
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
     ReadOnly cDialog As New ColorDialog()
+    ReadOnly UIfont = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
     '---Database Variables Init
 
@@ -68,6 +69,27 @@ Public Class POSSystem
             Console.WriteLine(MenuCatergories)
         End While
 
+        If tblMenuTabsContainer.ColumnCount > 0 Then
+            'Remove all controls in the last column
+            For row As Integer = 0 To tblMenuTabsContainer.RowCount - 1
+                Dim control As Control = tblMenuTabsContainer.GetControlFromPosition(tblMenuTabsContainer.ColumnCount - 1, 0)
+                tblMenuTabsContainer.Controls.Remove(control)
+            Next
+
+        End If
+
+        tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
+        tblMenuTabsContainer.Controls.Add(New Label With {.Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.White, .Text = CStr(MenuCatergories(0))}, 0, 0)
+        Panel3.Size = New Size(0, 1)
+        tblMenuTabsContainer.ColumnCount += 1
+        For i As Integer = 1 To MenuCatergories.Count - 1
+            tblMenuTabsContainer.ColumnCount += 1
+            tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
+            tblMenuTabsContainer.Controls.Add(New Label With {.Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCatergories(i))}, CInt(tblMenuTabsContainer.ColumnCount) - 1, 0)
+            tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount) - 1, 1)
+        Next
+        tblMenuTabsContainer.ColumnCount += 1
+        tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
     End Sub
 
     'Init tab system and load accent color
@@ -79,10 +101,6 @@ Public Class POSSystem
         lblCurrentUser.Text = currentUser
         loadUserConfig()
         ChangeTab(lblTabSel1, e)
-
-        'Temporary Code
-        Label4.ForeColor = Color.FromArgb(150, 150, 150)
-        Panel5.Visible = False
         LoadMenuItems()
     End Sub
 
