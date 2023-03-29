@@ -110,7 +110,6 @@ Public Class POSSystem
         LoadMenuItems()
     End Sub
 
-
     '---Menu Tab Changing System
     Private Sub ChangeMenuTab(newTab As String)
 
