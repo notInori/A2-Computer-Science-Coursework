@@ -135,7 +135,6 @@ Public Class POSSystem
 
         'Update Color Picker UI Preview
         pnlColorPicker.BackColor = accentColor
-        ColorPicker.UpdateAccent()
 
         'Tab Highlight Accent Updating
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)

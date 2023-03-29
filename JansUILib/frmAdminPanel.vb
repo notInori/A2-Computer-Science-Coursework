@@ -113,7 +113,7 @@ Public Class AdminPanel
 
     '---Change Colourisable Accents in UI
 
-    Private Sub UpdateAccent()
+    Public Sub UpdateAccent()
         'Groupbox Topbar Color Updating
         Panel8.BackColor = accentColor
         For Each menuscreen As Control In Panel1.Controls.OfType(Of Panel)
@@ -164,8 +164,10 @@ Public Class AdminPanel
 
     'UI Accent Colour Picker
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
-        If (cDialog.ShowDialog() = DialogResult.OK) Then
-            accentColor = cDialog.Color ' update with user selected color.
+        If Not ColorPicker.IsHandleCreated Then
+            Dim PnlColorPicker As New ColorPicker()
+            PnlColorPicker.Show()
+
         End If
         UpdateAccent()
         SaveConfig("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)

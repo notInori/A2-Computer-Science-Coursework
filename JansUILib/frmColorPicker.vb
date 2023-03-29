@@ -21,9 +21,17 @@
     Private Sub ColorPicker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Slider Init
-        Dim colorpickerlocation As Point = POSSystem.pnlColorPicker.PointToScreen(Point.Empty)
+        Dim colorpickerlocation As Point
+        If POSSystem.IsHandleCreated Then
+            colorpickerlocation = POSSystem.pnlColorPicker.PointToScreen(Point.Empty)
+            RgbToHls(POSSystem.accentColor.R, POSSystem.accentColor.G, POSSystem.accentColor.B) 'Converts RGB back to HSL to set sliders
+        Else
+            colorpickerlocation = AdminPanel.pnlColorPicker.PointToScreen(Point.Empty)
+            RgbToHls(AdminPanel.accentColor.R, AdminPanel.accentColor.G, AdminPanel.accentColor.B) 'Converts RGB back to HSL to set sliders
+        End If
+
         Me.Location = New Point(colorpickerlocation.X - Me.Width + 34, colorpickerlocation.Y + 20) 'Set location relative to main program colorpicker control
-        RgbToHls(POSSystem.accentColor.R, POSSystem.accentColor.G, POSSystem.accentColor.B) 'Converts RGB back to HSL to set sliders
+
 
         'Update Labels of Sliders
         Label7.Text = Math.Round(hvalue, 0)
@@ -34,6 +42,8 @@
         Panel1.Width = hvalue / 360 * Panel27.Width
         Panel60.Width = svalue * Panel57.Width
         Panel66.Width = lvalue * Panel65.Width
+
+        UpdateAccent()
     End Sub
 
     'Functions
@@ -197,12 +207,21 @@
         'Calculate RGB value from HSL and Pass To Main Program
         POSSystem.accentColor = HlsToRgb(hvalue, lvalue, svalue)
         POSSystem.UpdateAccent()
+        AdminPanel.accentColor = HlsToRgb(hvalue, lvalue, svalue)
+        AdminPanel.UpdateAccent()
+        UpdateAccent()
     End Sub
 
     Public Sub UpdateAccent()
-        Panel1.BackColor = POSSystem.accentColor
-        Panel60.BackColor = POSSystem.accentColor
-        Panel66.BackColor = POSSystem.accentColor
+        If POSSystem.IsHandleCreated Then
+            Panel1.BackColor = POSSystem.accentColor
+            Panel60.BackColor = POSSystem.accentColor
+            Panel66.BackColor = POSSystem.accentColor
+        Else
+            Panel1.BackColor = AdminPanel.accentColor
+            Panel60.BackColor = AdminPanel.accentColor
+            Panel66.BackColor = AdminPanel.accentColor
+        End If
     End Sub
 
     'Auto Hide Colour Picker When Focus Lost
