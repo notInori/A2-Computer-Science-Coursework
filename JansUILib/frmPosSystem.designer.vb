@@ -686,8 +686,8 @@ Partial Class POSSystem
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.pnlNotification)
         Me.Panel1.Controls.Add(Me.pnlMainPage)
+        Me.Panel1.Controls.Add(Me.pnlNotification)
         Me.Panel1.Controls.Add(Me.pnlSettingsPage)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 85)
@@ -1065,11 +1065,12 @@ Partial Class POSSystem
         Me.pnlMainPage.Controls.Add(Me.TableLayoutPanel13)
         Me.pnlMainPage.Controls.Add(Me.tblGroupBox)
         Me.pnlMainPage.Controls.Add(Me.Button2)
-        Me.pnlMainPage.Location = New System.Drawing.Point(882, 428)
+        Me.pnlMainPage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlMainPage.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainPage.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlMainPage.Name = "pnlMainPage"
         Me.pnlMainPage.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlMainPage.Size = New System.Drawing.Size(552, 381)
+        Me.pnlMainPage.Size = New System.Drawing.Size(1434, 809)
         Me.pnlMainPage.TabIndex = 6
         '
         'TableLayoutPanel30
@@ -2927,11 +2928,11 @@ Partial Class POSSystem
         Me.pnlSettingsPage.Controls.Add(Me.TableLayoutPanel1)
         Me.pnlSettingsPage.Controls.Add(Me.TableLayoutPanel33)
         Me.pnlSettingsPage.Controls.Add(Me.TableLayoutPanel16)
-        Me.pnlSettingsPage.Location = New System.Drawing.Point(914, 263)
+        Me.pnlSettingsPage.Location = New System.Drawing.Point(21, 755)
         Me.pnlSettingsPage.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlSettingsPage.Name = "pnlSettingsPage"
         Me.pnlSettingsPage.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlSettingsPage.Size = New System.Drawing.Size(520, 546)
+        Me.pnlSettingsPage.Size = New System.Drawing.Size(549, 10)
         Me.pnlSettingsPage.TabIndex = 5
         '
         'TableLayoutPanel1

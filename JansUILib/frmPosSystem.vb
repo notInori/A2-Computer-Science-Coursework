@@ -17,7 +17,7 @@ Public Class POSSystem
     'Database Variables Init
     Dim myReader As OleDbDataReader
     ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
-    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\ Menu.accdb")
+    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
 
     '---Winforms Init' 
 
@@ -47,8 +47,9 @@ Public Class POSSystem
     'Load Menu Items
     Private Sub LoadMenuItems()
         menuconn.Open()
-        Dim MenuCatergories As List(Of Object)
-        Dim cmd As New OleDbCommand("SELECT Catergory FROM Menu", menuconn)
+        'Dim MenuCatergories As List(Of Object)
+        Dim MenuCatergories As New List(Of String)()
+        Dim cmd As New OleDbCommand("SELECT Category FROM Menu", menuconn)
         myReader = cmd.ExecuteReader
         While myReader.Read()
             Dim value As String = CStr(myReader.GetValue(0))
@@ -56,6 +57,7 @@ Public Class POSSystem
                 'Go
                 MenuCatergories.Add(value)
             End If
+            Console.WriteLine(MenuCatergories)
         End While
 
     End Sub
@@ -73,7 +75,7 @@ Public Class POSSystem
         'Temporary Code
         Label4.ForeColor = Color.FromArgb(150, 150, 150)
         Panel5.Visible = False
-
+        LoadMenuItems()
     End Sub
 
     '---Tab Changing System
@@ -201,4 +203,5 @@ Public Class POSSystem
             Notification("Error: Password field can not be empty!")
         End If
     End Sub
+
 End Class
