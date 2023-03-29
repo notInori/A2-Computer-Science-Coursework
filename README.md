@@ -12,7 +12,7 @@ A POS System that i'm developing for my A Level Computer Science Coursework.
 
 ### Staff POS Screen
 ##### Main Menu
-![UI](https://user-images.githubusercontent.com/124441402/228686651-80e01668-97de-42e8-adb8-41ed33d8f181.png)
+![UI](https://user-images.githubusercontent.com/124441402/228686873-5806ed5f-5102-47a4-8e6a-5c2f95f6c508.png)
 ##### Settings Screen
 ![UI](https://user-images.githubusercontent.com/124441402/228686656-eca7ffaf-61f4-4614-a64f-caa63fcad1e2.png)
 ##### Color Picker
