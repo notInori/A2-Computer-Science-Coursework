@@ -25,7 +25,7 @@ Public Class POSSystem
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
 
-    Dim MenuCatergories As New List(Of String)()
+    ReadOnly MenuCatergories As New List(Of String)()
 
     '---Winforms Init' 
 
