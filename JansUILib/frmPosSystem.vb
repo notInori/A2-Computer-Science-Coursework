@@ -78,6 +78,7 @@ Public Class POSSystem
 
         End If
 
+
         tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
         tblMenuTabsContainer.Controls.Add(New Label With {.Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.White, .Text = CStr(MenuCatergories(0))}, 0, 0)
         Panel3.Size = New Size(0, 1)
