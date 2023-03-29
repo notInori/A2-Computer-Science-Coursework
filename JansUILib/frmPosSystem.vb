@@ -62,7 +62,6 @@ Public Class POSSystem
             If Not MenuCatergories.Contains(value) Then
                 MenuCatergories.Add(value)
             End If
-            Console.WriteLine(MenuCatergories)
         End While
 
         'Adds the first item in the selector
@@ -122,6 +121,12 @@ Public Class POSSystem
 
     '---Menu Tab Changing System
     Private Sub ChangeMenuTab(newTab As String)
+        Dim categoryitem As New List(Of String)()
+        Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
+        myReader = cmd.ExecuteReader
+        While myReader.Read()
+            categoryitem.Add(CStr(myReader.GetValue(0)))
+        End While
 
     End Sub
     '---Tab Changing System
