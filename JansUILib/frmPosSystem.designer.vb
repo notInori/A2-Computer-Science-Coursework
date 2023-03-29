@@ -155,8 +155,6 @@ Partial Class POSSystem
         Me.pnlUsernameInnerBlackLine = New System.Windows.Forms.Panel()
         Me.pnlUsernameInputBackground = New System.Windows.Forms.Panel()
         Me.tblMenuTabsContainer = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.tblGroupBox = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel168 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
@@ -396,7 +394,6 @@ Partial Class POSSystem
         Me.pnlUsernameBorder.SuspendLayout()
         Me.pnlUsernameInnerBlackLine.SuspendLayout()
         Me.pnlUsernameInputBackground.SuspendLayout()
-        Me.tblMenuTabsContainer.SuspendLayout()
         Me.tblGroupBox.SuspendLayout()
         Me.Panel168.SuspendLayout()
         Me.TableLayoutPanel14.SuspendLayout()
@@ -2145,8 +2142,6 @@ Partial Class POSSystem
         Me.tblMenuTabsContainer.ColumnCount = 1
         Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblMenuTabsContainer.Controls.Add(Me.Label7, 0, 0)
-        Me.tblMenuTabsContainer.Controls.Add(Me.Panel3, 0, 1)
         Me.tblMenuTabsContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tblMenuTabsContainer.Location = New System.Drawing.Point(1, 1)
         Me.tblMenuTabsContainer.Margin = New System.Windows.Forms.Padding(0)
@@ -2156,33 +2151,6 @@ Partial Class POSSystem
         Me.tblMenuTabsContainer.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
         Me.tblMenuTabsContainer.Size = New System.Drawing.Size(918, 40)
         Me.tblMenuTabsContainer.TabIndex = 7
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label7.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(0, 0)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Padding = New System.Windows.Forms.Padding(5)
-        Me.Label7.Size = New System.Drawing.Size(68, 39)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Tab1"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.White
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 39)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(918, 1)
-        Me.Panel3.TabIndex = 0
-        Me.Panel3.Tag = "tabHighlight"
         '
         'tblGroupBox
         '
@@ -4164,8 +4132,6 @@ Partial Class POSSystem
         Me.pnlUsernameBorder.ResumeLayout(False)
         Me.pnlUsernameInnerBlackLine.ResumeLayout(False)
         Me.pnlUsernameInputBackground.ResumeLayout(False)
-        Me.tblMenuTabsContainer.ResumeLayout(False)
-        Me.tblMenuTabsContainer.PerformLayout()
         Me.tblGroupBox.ResumeLayout(False)
         Me.Panel168.ResumeLayout(False)
         Me.Panel168.PerformLayout()
@@ -4416,8 +4382,6 @@ Partial Class POSSystem
     Friend WithEvents pnlUsernameInnerBlackLine As Panel
     Friend WithEvents pnlUsernameInputBackground As Panel
     Friend WithEvents tblMenuTabsContainer As TableLayoutPanel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents tblGroupBox As TableLayoutPanel
     Friend WithEvents Panel168 As Panel
     Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
