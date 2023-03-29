@@ -905,7 +905,6 @@ Partial Class AdminPanel
         Me.pnlMainPage.Controls.Add(Me.TableLayoutPanel13)
         Me.pnlMainPage.Controls.Add(Me.tblGroupBox)
         Me.pnlMainPage.Controls.Add(Me.Button2)
-        Me.pnlMainPage.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMainPage.Location = New System.Drawing.Point(0, 0)
         Me.pnlMainPage.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlMainPage.Name = "pnlMainPage"

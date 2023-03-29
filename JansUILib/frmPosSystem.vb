@@ -173,4 +173,11 @@ Public Class POSSystem
         lblTitle.Text = "POS SYSTEM | " & versionNumber & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
+    Private Sub BtnSavePassword_Click(sender As Object, e As EventArgs) Handles BtnSavePassword.Click
+        If tbxPassword.Text <> "" Then
+            Dim cmd As New OleDbCommand("UPDATE UserAuth SET PIN='" & tbxPassword.Text & "' WHERE UID=" & UID, conn)
+
+            cmd.ExecuteNonQuery()
+        End If
+    End Sub
 End Class
