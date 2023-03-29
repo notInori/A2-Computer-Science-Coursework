@@ -117,7 +117,7 @@ Public Class AuthLogin
     'Exit Program
     Private Sub WindowExit(sender As Object, e As EventArgs) Handles btnExit.Click
         conn.Close()
-        Close()
+        Application.Exit()
     End Sub
 
 End Class
