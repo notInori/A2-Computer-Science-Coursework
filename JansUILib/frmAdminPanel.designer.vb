@@ -2513,12 +2513,12 @@ Partial Class AdminPanel
         Me.LblTotalHours.Dock = System.Windows.Forms.DockStyle.Right
         Me.LblTotalHours.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblTotalHours.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.LblTotalHours.Location = New System.Drawing.Point(385, 0)
+        Me.LblTotalHours.Location = New System.Drawing.Point(373, 0)
         Me.LblTotalHours.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
         Me.LblTotalHours.Name = "LblTotalHours"
-        Me.LblTotalHours.Size = New System.Drawing.Size(58, 24)
+        Me.LblTotalHours.Size = New System.Drawing.Size(70, 24)
         Me.LblTotalHours.TabIndex = 10
-        Me.LblTotalHours.Text = "0Hrs"
+        Me.LblTotalHours.Text = "0 Hrs"
         Me.LblTotalHours.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label40

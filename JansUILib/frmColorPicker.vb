@@ -118,7 +118,7 @@
         diff = max - min
         lvalue = (max + min) / 2
         If Math.Abs(diff) < 0.00001 Then
-            svalue = 0
+            svalue = 0.0000000001
             hvalue = 0   ' H is really undefined.
         Else
             If lvalue <= 0.5 Then
