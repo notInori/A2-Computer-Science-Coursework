@@ -113,8 +113,8 @@ Public Class POSSystem
     '---Notification Prompts
 
     'Full screen notifications
-    Private Sub Notifcation(notifcationText As String)
-        lblNotifcationInfo.Text = notifcationText
+    Private Sub Notification(NotificationText As String)
+        lblNotificationInfo.Text = NotificationText
         pnlNotification.Dock = DockStyle.Fill
         pnlNotification.BringToFront()
     End Sub
@@ -178,7 +178,7 @@ Public Class POSSystem
     Private Sub UserLogOut(sender As Object, e As EventArgs) Handles BtnLogOut.Click
         Me.Close()
         AuthLogin.Show()
-        AuthLogin.loadUsernames()
+        AuthLogin.LoadUsernames()
     End Sub
 
     '---Watermark
@@ -192,13 +192,13 @@ Public Class POSSystem
         If tbxPassword.Text <> "" And InStr(tbxPassword.Text, " ") = 0 Then
             Dim cmd As New OleDbCommand("UPDATE UserAuth SET PIN='" & tbxPassword.Text & "' WHERE UID=" & UID, conn)
             cmd.ExecuteNonQuery()
-            Notifcation("New password was set successfully!")
+            Notification("New password was set successfully!")
             tbxPassword.Clear()
         ElseIf InStr(tbxPassword.Text, " ") > 0 Then
-            Notifcation("Error: Passwords can not have spaces in them!")
+            Notification("Error: Passwords can not have spaces in them!")
             tbxPassword.Text = tbxPassword.Text.Replace(" ", "")
         Else
-            Notifcation("Error: Password field can not be empty!")
+            Notification("Error: Password field can not be empty!")
         End If
     End Sub
 End Class

@@ -294,7 +294,7 @@ Partial Class AdminPanel
         Me.Panel391 = New System.Windows.Forms.Panel()
         Me.Panel392 = New System.Windows.Forms.Panel()
         Me.Panel393 = New System.Windows.Forms.Panel()
-        Me.lblNotifcationInfo = New System.Windows.Forms.Label()
+        Me.lblNotificationInfo = New System.Windows.Forms.Label()
         Me.Panel394 = New System.Windows.Forms.Panel()
         Me.Panel395 = New System.Windows.Forms.Panel()
         Me.btnContinueNotification = New System.Windows.Forms.Button()
@@ -4051,26 +4051,26 @@ Partial Class AdminPanel
         'Panel393
         '
         Me.Panel393.AutoSize = True
-        Me.Panel393.Controls.Add(Me.lblNotifcationInfo)
+        Me.Panel393.Controls.Add(Me.lblNotificationInfo)
         Me.Panel393.Location = New System.Drawing.Point(11, 7)
         Me.Panel393.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
         Me.Panel393.Name = "Panel393"
         Me.Panel393.Size = New System.Drawing.Size(443, 122)
         Me.Panel393.TabIndex = 21
         '
-        'lblNotifcationInfo
+        'lblNotificationInfo
         '
-        Me.lblNotifcationInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblNotifcationInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblNotifcationInfo.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNotifcationInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.lblNotifcationInfo.Location = New System.Drawing.Point(0, 0)
-        Me.lblNotifcationInfo.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.lblNotifcationInfo.Name = "lblNotifcationInfo"
-        Me.lblNotifcationInfo.Size = New System.Drawing.Size(443, 122)
-        Me.lblNotifcationInfo.TabIndex = 9
-        Me.lblNotifcationInfo.Text = "[Notification Info]"
-        Me.lblNotifcationInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblNotificationInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblNotificationInfo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblNotificationInfo.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNotificationInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        Me.lblNotificationInfo.Location = New System.Drawing.Point(0, 0)
+        Me.lblNotificationInfo.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
+        Me.lblNotificationInfo.Name = "lblNotificationInfo"
+        Me.lblNotificationInfo.Size = New System.Drawing.Size(443, 122)
+        Me.lblNotificationInfo.TabIndex = 9
+        Me.lblNotificationInfo.Text = "[Notification Info]"
+        Me.lblNotificationInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel394
         '
@@ -5913,7 +5913,7 @@ Partial Class AdminPanel
     Friend WithEvents Panel391 As Panel
     Friend WithEvents Panel392 As Panel
     Friend WithEvents Panel393 As Panel
-    Friend WithEvents lblNotifcationInfo As Label
+    Friend WithEvents lblNotificationInfo As Label
     Friend WithEvents Panel394 As Panel
     Friend WithEvents Panel395 As Panel
     Friend WithEvents btnContinueNotification As Button

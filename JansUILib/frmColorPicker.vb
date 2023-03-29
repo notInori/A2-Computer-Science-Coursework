@@ -102,9 +102,9 @@
         Dim r_dist As Double
         Dim g_dist As Double
         Dim b_dist As Double
-        R = R / 255
-        G = G / 255
-        B = B / 255
+        R /= 255
+        G /= 255
+        B /= 255
 
         ' Get the maximum and minimum RGB components.
         max = R
@@ -139,8 +139,8 @@
                 hvalue = 4 + g_dist - r_dist 'This can generate wrong values sometimes
             End If
 
-            hvalue = hvalue * 60
-            If hvalue < 0 Then hvalue = hvalue + 360
+            hvalue *= 60
+            If hvalue < 0 Then hvalue += 360
         End If
     End Sub
 

@@ -150,8 +150,8 @@ Public Class AdminPanel
     '---Notifications
 
     'Full screen notifications
-    Private Sub Notifcation(notifcationText As String)
-        lblNotifcationInfo.Text = notifcationText
+    Private Sub Notification(NotificationText As String)
+        lblNotificationInfo.Text = NotificationText
         pnlNotification.Dock = DockStyle.Fill
         pnlNotification.BringToFront()
     End Sub
@@ -196,15 +196,18 @@ Public Class AdminPanel
 
     'Save Changes to User's Username and Password
     Private Sub UpdateUserCredentials(sender As Object, e As EventArgs) Handles btnSave.Click
-        If TbxUsername.Text <> "" And TbxPassword.Text <> "" And lbxUsernames.SelectedItem <> Nothing Then
+        If TbxUsername.Text <> "" And TbxPassword.Text <> "" And lbxUsernames.SelectedItem <> Nothing And InStr(TbxPassword.Text, " ") = 0 Then
             SaveConfig("UPDATE UserAuth SET Username='" & TbxUsername.Text & "' WHERE UID=" & selectedUID)
             SaveConfig("UPDATE UserAuth SET PIN='" & TbxPassword.Text & "' WHERE UID=" & selectedUID)
             lbxUsernames.SelectedItem = SqlReadVAlue("SELECT Username FROM UserAuth WHERE (UID=" & selectedUID & ")")
-            Notifcation("New User Credentials for " & TbxUsername.Text & " have been saved successfully!")
+            Notification("New User Credentials for " & TbxUsername.Text & " have been saved successfully!")
         ElseIf TbxUsername.Text = "" Or TbxPassword.Text = "" Then
-            Notifcation("Error: Fields can not be empty!")
+            Notification("Error: Fields can not be empty!")
+        ElseIf InStr(TbxPassword.Text, " ") > 0 Then
+            Notification("Error: Passwords can not have spaces in them!")
+            TbxPassword.Text = TbxPassword.Text.Replace(" ", "")
         Else
-            Notifcation("Error: User must be selected.")
+            Notification("Error: User must be selected.")
         End If
         LoadUsernames()
     End Sub
@@ -229,12 +232,12 @@ Public Class AdminPanel
             SaveConfig("INSERT INTO UserConfig(Accent) VALUES(-1)")
             SaveConfig("INSERT INTO UserData DEFAULT VALUES")
             SaveConfig("INSERT INTO UserStats DEFAULT VALUES")
-            Notifcation("User " & TbxUsername.Text.ToString & " has been successfully added!")
+            Notification("User " & TbxUsername.Text.ToString & " has been successfully added!")
             LoadUsernames()
         ElseIf SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") = Nothing Then
-            Notifcation("Error: Fields can not be empty!")
+            Notification("Error: Fields can not be empty!")
         Else
-            Notifcation("Error: " & TbxUsername.Text.ToString & " already exists.")
+            Notification("Error: " & TbxUsername.Text.ToString & " already exists.")
         End If
     End Sub
 
@@ -245,7 +248,7 @@ Public Class AdminPanel
             pnlConfirmation.Dock = DockStyle.Fill
             pnlConfirmation.BringToFront()
         ElseIf sender Is BtnDelete Then
-            Notifcation("Error: User must be selected!")
+            Notification("Error: User must be selected!")
         ElseIf sender Is BtnContinueAction Or sender Is BtnCancelAction Then
             pnlConfirmation.Dock = DockStyle.None
             pnlConfirmation.Height = 0
@@ -258,7 +261,7 @@ Public Class AdminPanel
             SaveConfig("DELETE FROM UserStats WHERE UID=" & selectedUID)
             selectedUID = Nothing
             ClearUserDataFields(sender, e)
-            Notifcation("User " & tempUsername & " Successfully Deleted!")
+            Notification("User " & tempUsername & " Successfully Deleted!")
         End If
         LoadUsernames()
     End Sub
@@ -270,16 +273,16 @@ Public Class AdminPanel
         conn.Close()
         Me.Close()
         AuthLogin.Show()
-        AuthLogin.loadUsernames()
+        AuthLogin.LoadUsernames()
     End Sub
 
     'Save Admin Password Button
     Private Sub SaveAdminPassword(sender As Object, e As EventArgs) Handles btnSaveAdminPass.Click
         If tbxAdminPassword.Text <> "" Then
             SaveConfig("UPDATE UserAuth SET PIN='" & tbxAdminPassword.Text & "' WHERE UID=1")
-            Notifcation("New admin credentials have been set successfully!")
+            Notification("New admin credentials have been set successfully!")
         Else
-            Notifcation("Error: Field can not be empty.")
+            Notification("Error: Field can not be empty.")
         End If
         tbxAdminPassword.Clear()
     End Sub
