@@ -56,14 +56,11 @@ Public Class POSSystem
     'Load Menu Items
     Private Sub LoadMenuItems()
         menuconn.Open()
-        'Dim MenuCatergories As List(Of Object)
-
         Dim cmd As New OleDbCommand("SELECT Category FROM Menu", menuconn)
         myReader = cmd.ExecuteReader
         While myReader.Read()
             Dim value As String = CStr(myReader.GetValue(0))
             If Not MenuCatergories.Contains(value) Then
-                'Go
                 MenuCatergories.Add(value)
             End If
             Console.WriteLine(MenuCatergories)
@@ -71,8 +68,6 @@ Public Class POSSystem
 
         'Adds the first item in the selector
         tblMenuTabsContainer.ColumnCount = 1
-        'tblMenuTabsContainer.Controls.Add(New Label With {.Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.White, .Text = CStr(MenuCatergories(0))}, 0, 0)
-        'tblMenuTabsContainer.Controls.Add(New Panel With {.Name = MenuCatergories(0), .Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.White}, 0, 1)
         tblMenuTabsContainer.ColumnStyles.RemoveAt(1)
         For i As Integer = 0 To MenuCatergories.Count - 1
             tblMenuTabsContainer.ColumnCount += 1
