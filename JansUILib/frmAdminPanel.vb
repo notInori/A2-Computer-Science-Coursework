@@ -181,10 +181,16 @@ Public Class AdminPanel
     Private Sub LoadSelectedUserInfo(sender As Object, e As EventArgs) Handles lbxUsernames.SelectedValueChanged
         If lbxUsernames.SelectedItem <> "" Then
             selectedUID = SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & lbxUsernames.SelectedItem.ToString & "')")
+            'Display User Credentials
             TbxUsername.Text = lbxUsernames.SelectedItem
             TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)
-            LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
 
+            'Display User Personal Info
+            LblFirstName.Text = SqlReadVAlue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)
+            LblLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
+            LblJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
+            'Display User Performance
+            LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
         End If
     End Sub
 
@@ -209,6 +215,11 @@ Public Class AdminPanel
         lbxUsernames.SelectedItem = Nothing
         TbxUsername.Clear()
         TbxPassword.Clear()
+        LblFirstName.Text = "[FIRST NAME]"
+        LblLastName.Text = "[LAST NAME]"
+        LblJobStatus.Text = "[JOB STATUS]"
+        LblTotalHours.Text = "0 Hrs"
+
     End Sub
 
     'Adds New User To Database
