@@ -77,7 +77,9 @@ Public Class POSSystem
             tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
             AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
                                            Dim currentColumn As Integer = tblMenuTabsContainer.GetColumn(sender)
-                                           ChangeMenuTab(MenuCatergories(currentColumn - 1))
+                                           'ChangeMenuTab(MenuCatergories(currentColumn - 1))
+                                           Console.WriteLine(currentColumn)
+                                           Console.WriteLine(MenuCatergories.Count)
                                            For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Panel)
                                                If tblMenuTabsContainer.GetColumn(cntrl) = currentColumn Then
                                                    cntrl.BackColor = Color.White
