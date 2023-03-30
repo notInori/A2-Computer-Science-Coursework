@@ -12,19 +12,19 @@ A POS System that i'm developing for my A Level Computer Science Coursework.
 
 ### Staff POS Screen
 ##### Main Menu
-![UI](https://user-images.githubusercontent.com/124441402/228686873-5806ed5f-5102-47a4-8e6a-5c2f95f6c508.png)
+![image](https://user-images.githubusercontent.com/124441402/228790896-01dd4022-b096-4fe9-8e8a-41d983daf400.png)
 ##### Settings Screen
-![UI](https://user-images.githubusercontent.com/124441402/228686656-eca7ffaf-61f4-4614-a64f-caa63fcad1e2.png)
+![image](https://user-images.githubusercontent.com/124441402/228790910-9896c97f-42b9-490b-85e2-ec4dad7db49a.png)
 ##### Color Picker
-![UI](https://user-images.githubusercontent.com/124441402/228686673-4e02b747-11bb-4672-9e2f-e3200066a90b.png)
+![image](https://user-images.githubusercontent.com/124441402/228790922-f9c9a2c5-ed8e-43f7-bbcd-5843beaa3bcb.png)
 
 
 ### Admin Panel
 ##### Users
-![UI](https://user-images.githubusercontent.com/124441402/228686332-5fd2f52c-4af7-4a13-9c04-81e617b3598a.png)
+![image](https://user-images.githubusercontent.com/124441402/228791176-39c7e30f-7032-4a46-8191-3a21e1cdec26.png)
 ##### Settings
-![UI](https://user-images.githubusercontent.com/124441402/228686348-c8111101-9882-40c6-9315-0265651f4ecc.png)
+![image](https://user-images.githubusercontent.com/124441402/228791211-7ab50d8a-53b9-4593-acfc-bfa42c9f5d37.png)
 ##### Confirmation Prompt
-![UI](https://user-images.githubusercontent.com/124441402/228686395-a12e1474-1112-4568-9421-b6eca8df9784.png)
+![image](https://user-images.githubusercontent.com/124441402/228791229-18dea6cd-6f32-4fed-9d59-5b53cb2c41a7.png)
 ##### Notification
-![UI](https://user-images.githubusercontent.com/124441402/228686364-91254714-adff-43d0-afaa-721d4a0a7cd1.png)
+![image](https://user-images.githubusercontent.com/124441402/228791300-87a611cb-0725-4f94-a524-78be7ef4829c.png)
