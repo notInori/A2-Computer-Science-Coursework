@@ -86,6 +86,34 @@ Public Class AdminPanel
         Return Nothing
     End Function
 
+    '---Menu Tab Changing System
+
+    'Change Current Menu Tab
+    Private Sub ChangeMenuTab(newTab As String)
+        FlwMenuItemGrid.Controls.Clear()
+        Dim categoryitems As New List(Of String)()
+        Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
+        myReader = cmd.ExecuteReader
+        While myReader.Read()
+            categoryitems.Add(CStr(myReader.GetValue(0)))
+        End While
+        For i As Integer = 0 To categoryitems.Count - 1
+            Dim ItemShadow As New Panel With {.BackColor = Color.Black,
+            .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(125, 125)}
+            Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
+            .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
+            Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
+            Dim FormattedString As String = "£" & String.Format("{0:n}", price)
+            Dim menuitem As New BorderlessButton(categoryitems(i), sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            AddHandler menuitem.Click, Sub(sender As Object, e As EventArgs)
+                                           LblMenuItemUID.Text = menuitem.UID
+                                           TbxDisplayName.Text = sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & menuitem.UID)
+                                           TbxItemPrice.Text = FormattedString
+                                           TbxCategory.Text = sqlReadMenuValue("SELECT [Category] FROM Menu WHERE UID=" & menuitem.UID)
+                                       End Sub
+        Next
+    End Sub
+
     'Load Menu Items
     Private Sub LoadMenuItems()
         menuconn.Open()
@@ -130,35 +158,9 @@ Public Class AdminPanel
         tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
     End Sub
 
-    '---Menu Tab Changing System
-    Private Sub ChangeMenuTab(newTab As String)
-        FlwMenuItemGrid.Controls.Clear()
-        Dim categoryitems As New List(Of String)()
-        Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            categoryitems.Add(CStr(myReader.GetValue(0)))
-        End While
-        For i As Integer = 0 To categoryitems.Count - 1
-            Dim ItemShadow As New Panel With {.BackColor = Color.Black,
-            .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(125, 125)}
-            Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
-            .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
-            Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
-            Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(categoryitems(i), sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
-            AddHandler menuitem.Click, Sub(sender As Object, e As EventArgs)
-                                           LblMenuItemUID.Text = menuitem.UID
-                                           TbxDisplayName.Text = sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & menuitem.UID)
-                                           TbxItemPrice.Text = FormattedString
-                                           TbxCategory.Text = sqlReadMenuValue("SELECT [Category] FROM Menu WHERE UID=" & menuitem.UID)
-                                       End Sub
-        Next
-    End Sub
-
     '---UI Library Functions
 
-    'Tab Changing System
+    'Change Current Program Tab
     Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click, lblTabSel3.Click, lblTabSel4.Click, lblTabSel5.Click
 
         'Hides selected tab indicator
@@ -361,6 +363,16 @@ Public Class AdminPanel
             Notification("User " & tempUsername & " Successfully Deleted!")
         End If
         LoadUsernames()
+    End Sub
+
+    'Menu Tab
+
+    'Clear Current Menu Item
+    Private Sub BtnItemClear_Click(sender As Object, e As EventArgs) Handles BtnItemClear.Click
+        LblMenuItemUID.Text = "0"
+        TbxDisplayName.Clear()
+        TbxItemPrice.Clear()
+        TbxCategory.Clear()
     End Sub
 
     'Settings Tab 
