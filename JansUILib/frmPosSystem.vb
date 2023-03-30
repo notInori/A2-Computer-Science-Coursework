@@ -107,27 +107,20 @@ Public Class POSSystem
         tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
     End Sub
 
-    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
-        Const WM_SYSCOMMAND As Integer = &H112
-        Const SC_CLOSE As Integer = &HF060
-        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_CLOSE Then
-            Application.Exit() 'Patch bug where process not killed due to main form being hidden
-        Else
-            MyBase.WndProc(m)
-        End If
-    End Sub
-
-    'Init tab system and load accent color
+    'Init Winform
     Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         conn.Open()
-        For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)
+        For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel) 'Init Tab Option Widths
             cntrl.Width = 0
         Next
         lblCurrentUser.Text = currentUser
-        LoadUserConfig()
-        ChangeTab(lblTabSel1, e)
-        LoadMenuItems()
+        LoadUserConfig() 'Load accents and settings
+        LoadMenuItems() 'Set menu categories in UI
+        ChangeTab(lblTabSel1, e) 'Load first program tab
     End Sub
+
+
+    '---UI Functions
 
     '---Menu Tab Changing System
     Private Sub ChangeMenuTab(newTab As String)
@@ -149,8 +142,8 @@ Public Class POSSystem
 
         Next
     End Sub
-    '---Tab Changing System
 
+    'Change Program Tab
     Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click
 
         'Hides selected tab indicator
@@ -183,6 +176,17 @@ Public Class POSSystem
             pnlTabHighlight2.Visible = True
         End If
 
+    End Sub
+
+    'Patch bug where process not killed due to main form being hidden
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+        Const WM_SYSCOMMAND As Integer = &H112
+        Const SC_CLOSE As Integer = &HF060
+        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_CLOSE Then
+            Application.Exit()
+        Else
+            MyBase.WndProc(m)
+        End If
     End Sub
 
     '---Notification Prompts
