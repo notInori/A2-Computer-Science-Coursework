@@ -274,6 +274,8 @@ Public Class AdminPanel
             TbxLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
             'Display Job Status
             TbxJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
+            TbxDateJoined.Text = SqlReadVAlue("SELECT [Date Employed] FROM UserData WHERE UID=" & selectedUID)
+            TbxDateDismissed.Text = SqlReadVAlue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID)
             'Display User Performance
             LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
         End If

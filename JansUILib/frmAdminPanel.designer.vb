@@ -704,7 +704,7 @@ Partial Class AdminPanel
         Me.Panel511 = New System.Windows.Forms.Panel()
         Me.Panel512 = New System.Windows.Forms.Panel()
         Me.Panel513 = New System.Windows.Forms.Panel()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TbxDateJoined = New System.Windows.Forms.TextBox()
         Me.Panel514 = New System.Windows.Forms.Panel()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.Panel515 = New System.Windows.Forms.Panel()
@@ -718,7 +718,7 @@ Partial Class AdminPanel
         Me.Panel29 = New System.Windows.Forms.Panel()
         Me.Panel478 = New System.Windows.Forms.Panel()
         Me.Panel479 = New System.Windows.Forms.Panel()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TbxDateDismissed = New System.Windows.Forms.TextBox()
         Me.Panel480 = New System.Windows.Forms.Panel()
         Me.LblStaffUID = New System.Windows.Forms.Label()
         Me.Label64 = New System.Windows.Forms.Label()
@@ -9702,7 +9702,7 @@ Partial Class AdminPanel
         'Panel513
         '
         Me.Panel513.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel513.Controls.Add(Me.TextBox6)
+        Me.Panel513.Controls.Add(Me.TbxDateJoined)
         Me.Panel513.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel513.Location = New System.Drawing.Point(1, 1)
         Me.Panel513.Margin = New System.Windows.Forms.Padding(0)
@@ -9711,17 +9711,17 @@ Partial Class AdminPanel
         Me.Panel513.Size = New System.Drawing.Size(440, 30)
         Me.Panel513.TabIndex = 10
         '
-        'TextBox6
+        'TbxDateJoined
         '
-        Me.TextBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox6.Font = New System.Drawing.Font("Consolas", 15.75!)
-        Me.TextBox6.ForeColor = System.Drawing.Color.White
-        Me.TextBox6.Location = New System.Drawing.Point(0, 2)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(442, 25)
-        Me.TextBox6.TabIndex = 0
+        Me.TbxDateJoined.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.TbxDateJoined.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TbxDateJoined.Font = New System.Drawing.Font("Consolas", 15.75!)
+        Me.TbxDateJoined.ForeColor = System.Drawing.Color.White
+        Me.TbxDateJoined.Location = New System.Drawing.Point(0, 2)
+        Me.TbxDateJoined.Margin = New System.Windows.Forms.Padding(0)
+        Me.TbxDateJoined.Name = "TbxDateJoined"
+        Me.TbxDateJoined.Size = New System.Drawing.Size(442, 25)
+        Me.TbxDateJoined.TabIndex = 0
         '
         'Panel514
         '
@@ -9872,7 +9872,7 @@ Partial Class AdminPanel
         'Panel479
         '
         Me.Panel479.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel479.Controls.Add(Me.TextBox4)
+        Me.Panel479.Controls.Add(Me.TbxDateDismissed)
         Me.Panel479.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel479.Location = New System.Drawing.Point(1, 1)
         Me.Panel479.Margin = New System.Windows.Forms.Padding(0)
@@ -9881,17 +9881,17 @@ Partial Class AdminPanel
         Me.Panel479.Size = New System.Drawing.Size(440, 30)
         Me.Panel479.TabIndex = 10
         '
-        'TextBox4
+        'TbxDateDismissed
         '
-        Me.TextBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox4.Font = New System.Drawing.Font("Consolas", 15.75!)
-        Me.TextBox4.ForeColor = System.Drawing.Color.White
-        Me.TextBox4.Location = New System.Drawing.Point(0, 2)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(0)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(442, 25)
-        Me.TextBox4.TabIndex = 0
+        Me.TbxDateDismissed.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.TbxDateDismissed.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TbxDateDismissed.Font = New System.Drawing.Font("Consolas", 15.75!)
+        Me.TbxDateDismissed.ForeColor = System.Drawing.Color.White
+        Me.TbxDateDismissed.Location = New System.Drawing.Point(0, 2)
+        Me.TbxDateDismissed.Margin = New System.Windows.Forms.Padding(0)
+        Me.TbxDateDismissed.Name = "TbxDateDismissed"
+        Me.TbxDateDismissed.Size = New System.Drawing.Size(442, 25)
+        Me.TbxDateDismissed.TabIndex = 0
         '
         'Panel480
         '
@@ -11159,7 +11159,7 @@ Partial Class AdminPanel
     Friend WithEvents Panel511 As Panel
     Friend WithEvents Panel512 As Panel
     Friend WithEvents Panel513 As Panel
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TbxDateJoined As TextBox
     Friend WithEvents Panel514 As Panel
     Friend WithEvents Label65 As Label
     Friend WithEvents Panel515 As Panel
@@ -11173,7 +11173,7 @@ Partial Class AdminPanel
     Friend WithEvents Panel29 As Panel
     Friend WithEvents Panel478 As Panel
     Friend WithEvents Panel479 As Panel
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents TbxDateDismissed As TextBox
     Friend WithEvents Panel480 As Panel
     Friend WithEvents LblStaffUID As Label
     Friend WithEvents Label64 As Label
