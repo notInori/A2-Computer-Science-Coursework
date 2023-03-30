@@ -141,7 +141,7 @@ Public Class POSSystem
         End While
         For i As Integer = 0 To categoryitems.Count - 1
             Dim ItemShadow As New Panel With {.BackColor = Color.Black,
-            .ForeColor = Color.White, .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(100, 100)}
+            .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(100, 100)}
             Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
             Dim menuitem As New BorderlessButton(sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i))) With {.Parent = itemborder}
@@ -297,4 +297,5 @@ Public Class BorderlessButton
         Me.FlatStyle = FlatStyle.Flat
         Me.Name = newText
     End Sub
+
 End Class

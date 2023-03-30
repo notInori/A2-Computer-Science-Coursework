@@ -150,6 +150,7 @@ Partial Class POSSystem
         Me.Panel11 = New System.Windows.Forms.Panel()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.FlwMenuItemGrid = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlusernameOuterBlack = New System.Windows.Forms.Panel()
         Me.pnlUsernameBorder = New System.Windows.Forms.Panel()
         Me.pnlUsernameInnerBlackLine = New System.Windows.Forms.Panel()
@@ -307,7 +308,6 @@ Partial Class POSSystem
         Me.Panel88 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.tmrMain = New System.Windows.Forms.Timer(Me.components)
-        Me.FlwMenuItemGrid = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlBackground.SuspendLayout()
         Me.tblMain.SuspendLayout()
         Me.pnlTopBar.SuspendLayout()
@@ -2084,6 +2084,7 @@ Partial Class POSSystem
         '
         'Panel13
         '
+        Me.Panel13.AutoScroll = True
         Me.Panel13.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.Panel13.Controls.Add(Me.FlwMenuItemGrid)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
@@ -2093,6 +2094,17 @@ Partial Class POSSystem
         Me.Panel13.Padding = New System.Windows.Forms.Padding(1)
         Me.Panel13.Size = New System.Drawing.Size(920, 547)
         Me.Panel13.TabIndex = 10
+        '
+        'FlwMenuItemGrid
+        '
+        Me.FlwMenuItemGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlwMenuItemGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlwMenuItemGrid.Location = New System.Drawing.Point(1, 1)
+        Me.FlwMenuItemGrid.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlwMenuItemGrid.MinimumSize = New System.Drawing.Size(0, 500)
+        Me.FlwMenuItemGrid.Name = "FlwMenuItemGrid"
+        Me.FlwMenuItemGrid.Size = New System.Drawing.Size(918, 545)
+        Me.FlwMenuItemGrid.TabIndex = 0
         '
         'pnlusernameOuterBlack
         '
@@ -4025,15 +4037,6 @@ Partial Class POSSystem
         'tmrMain
         '
         Me.tmrMain.Enabled = True
-        '
-        'FlwMenuItemGrid
-        '
-        Me.FlwMenuItemGrid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlwMenuItemGrid.Location = New System.Drawing.Point(1, 1)
-        Me.FlwMenuItemGrid.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlwMenuItemGrid.Name = "FlwMenuItemGrid"
-        Me.FlwMenuItemGrid.Size = New System.Drawing.Size(918, 545)
-        Me.FlwMenuItemGrid.TabIndex = 0
         '
         'POSSystem
         '
