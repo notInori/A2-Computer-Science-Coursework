@@ -138,11 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="CustomerDataDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerDataDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmAdminPanel.designer.vb">
       <DependentUpon>frmAdminPanel.vb</DependentUpon>
     </Compile>
@@ -205,17 +200,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="CustomerDataDataSet.xsc">
-      <DependentUpon>CustomerDataDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CustomerDataDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CustomerDataDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CustomerDataDataSet.xss">
-      <DependentUpon>CustomerDataDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
