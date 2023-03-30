@@ -311,6 +311,8 @@ Public Class AdminPanel
         TbxFirstName.Clear()
         TbxLastName.Clear()
         TbxJobStatus.Clear()
+        TbxDateJoined.Clear()
+        TbxDateDismissed.Clear()
         LblTotalHours.Text = "0 Hrs"
 
     End Sub
