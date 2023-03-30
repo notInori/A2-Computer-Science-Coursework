@@ -3663,7 +3663,7 @@ Partial Class POSSystem
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel16.Size = New System.Drawing.Size(472, 212)
+        Me.TableLayoutPanel16.Size = New System.Drawing.Size(472, 118)
         Me.TableLayoutPanel16.TabIndex = 19
         Me.TableLayoutPanel16.Tag = "groupbox"
         '
@@ -3894,7 +3894,7 @@ Partial Class POSSystem
         Me.Panel251.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel251.Name = "Panel251"
         Me.Panel251.Padding = New System.Windows.Forms.Padding(1, 0, 1, 1)
-        Me.Panel251.Size = New System.Drawing.Size(472, 188)
+        Me.Panel251.Size = New System.Drawing.Size(472, 94)
         Me.Panel251.TabIndex = 16
         '
         'Panel252
@@ -3906,7 +3906,7 @@ Partial Class POSSystem
         Me.Panel252.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel252.Name = "Panel252"
         Me.Panel252.Padding = New System.Windows.Forms.Padding(1, 0, 1, 1)
-        Me.Panel252.Size = New System.Drawing.Size(470, 187)
+        Me.Panel252.Size = New System.Drawing.Size(470, 93)
         Me.Panel252.TabIndex = 17
         '
         'Panel253
@@ -3918,7 +3918,7 @@ Partial Class POSSystem
         Me.Panel253.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel253.Name = "Panel253"
         Me.Panel253.Padding = New System.Windows.Forms.Padding(1, 0, 1, 1)
-        Me.Panel253.Size = New System.Drawing.Size(468, 186)
+        Me.Panel253.Size = New System.Drawing.Size(468, 92)
         Me.Panel253.TabIndex = 17
         '
         'Panel254
@@ -3931,7 +3931,7 @@ Partial Class POSSystem
         Me.Panel254.Margin = New System.Windows.Forms.Padding(5)
         Me.Panel254.Name = "Panel254"
         Me.Panel254.Padding = New System.Windows.Forms.Padding(5)
-        Me.Panel254.Size = New System.Drawing.Size(466, 185)
+        Me.Panel254.Size = New System.Drawing.Size(466, 91)
         Me.Panel254.TabIndex = 17
         '
         'Panel314
