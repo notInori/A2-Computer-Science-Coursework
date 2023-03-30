@@ -5573,7 +5573,7 @@ Partial Class AdminPanel
         '
         Me.Panel29.Controls.Add(Me.LblJobStatus)
         Me.Panel29.Controls.Add(Me.Label13)
-        Me.Panel29.Location = New System.Drawing.Point(10, 63)
+        Me.Panel29.Location = New System.Drawing.Point(10, 58)
         Me.Panel29.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
         Me.Panel29.Name = "Panel29"
         Me.Panel29.Size = New System.Drawing.Size(443, 24)
@@ -5613,7 +5613,7 @@ Partial Class AdminPanel
         '
         Me.Panel28.Controls.Add(Me.LblLastName)
         Me.Panel28.Controls.Add(Me.Label11)
-        Me.Panel28.Location = New System.Drawing.Point(10, 34)
+        Me.Panel28.Location = New System.Drawing.Point(10, 29)
         Me.Panel28.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
         Me.Panel28.Name = "Panel28"
         Me.Panel28.Size = New System.Drawing.Size(443, 24)
@@ -5653,7 +5653,7 @@ Partial Class AdminPanel
         '
         Me.Panel27.Controls.Add(Me.LblFirstName)
         Me.Panel27.Controls.Add(Me.Label3)
-        Me.Panel27.Location = New System.Drawing.Point(10, 5)
+        Me.Panel27.Location = New System.Drawing.Point(10, 0)
         Me.Panel27.Margin = New System.Windows.Forms.Padding(5, 5, 5, 0)
         Me.Panel27.Name = "Panel27"
         Me.Panel27.Size = New System.Drawing.Size(443, 24)
