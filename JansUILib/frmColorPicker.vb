@@ -148,7 +148,7 @@
     'https://stackoverflow.com/questions/15857893/wait-5-seconds-before-continuing-code-vb-net
     Private Sub Wait(ByVal seconds As Integer)
         For i As Integer = 0 To seconds * 100
-            System.Threading.Thread.Sleep(10)
+            Threading.Thread.Sleep(10)
             Application.DoEvents()
         Next
     End Sub
