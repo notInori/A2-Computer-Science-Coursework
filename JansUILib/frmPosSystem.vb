@@ -13,7 +13,7 @@ Public Class POSSystem
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
-    ReadOnly UIfont = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    Public ReadOnly UIfont = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
     '---Database Variables Init
 
