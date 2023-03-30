@@ -154,7 +154,7 @@ Public Class AdminPanel
     '---UI Library Functions
 
     'Tab Changing System
-    Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click, lblTabSel3.Click, lblTabSel4.Click
+    Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click, lblTabSel3.Click, lblTabSel4.Click, lblTabSel5.Click
 
         'Hides selected tab indicator
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)
@@ -186,8 +186,11 @@ Public Class AdminPanel
             pnlPerformancePage.Dock = DockStyle.Fill
             pnlTabHighlight3.Visible = True
         ElseIf sender Is lblTabSel4 Then
-            pnlSettingsPage.Dock = DockStyle.Fill
+            PnlTicketsPage.Dock = DockStyle.Fill
             pnlTabHighlight4.Visible = True
+        ElseIf sender Is lblTabSel5 Then
+            pnlSettingsPage.Dock = DockStyle.Fill
+            pnlTabHighlight5.Visible = True
         End If
     End Sub
 
@@ -223,7 +226,7 @@ Public Class AdminPanel
         Next
 
         'Tab Label Accent Updating
-        lblTabSel4.ForeColor = accentColor
+        lblTabSel5.ForeColor = accentColor
 
     End Sub
 
