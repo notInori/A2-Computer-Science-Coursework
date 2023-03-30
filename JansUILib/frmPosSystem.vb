@@ -1,4 +1,5 @@
-﻿Imports System.Data.OleDb
+﻿Imports System.Configuration
+Imports System.Data.OleDb
 
 Public Class POSSystem
 
@@ -33,6 +34,16 @@ Public Class POSSystem
     Public Function SqlReadValue(command As String)
         Dim cmd As New OleDbCommand(command, conn)
         myReader = cmd.ExecuteReader
+        While myReader.Read()
+            Return myReader.GetValue(0)
+        End While
+        Return Nothing
+    End Function
+
+    'Read from Menu Database
+    Public Function sqlReadMenuValue(command As String)
+        Dim cmd As New OleDbCommand(command, menuconn)
+        myReader = cmd.ExecuteReader()
         While myReader.Read()
             Return myReader.GetValue(0)
         End While
@@ -114,20 +125,28 @@ Public Class POSSystem
             cntrl.Width = 0
         Next
         lblCurrentUser.Text = currentUser
-        loadUserConfig()
+        LoadUserConfig()
         ChangeTab(lblTabSel1, e)
         LoadMenuItems()
     End Sub
 
     '---Menu Tab Changing System
     Private Sub ChangeMenuTab(newTab As String)
-        Dim categoryitem As New List(Of String)()
+        FlwMenuItemGrid.Controls.Clear()
+        Dim categoryitems As New List(Of String)()
         Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
         myReader = cmd.ExecuteReader
         While myReader.Read()
-            categoryitem.Add(CStr(myReader.GetValue(0)))
+            categoryitems.Add(CStr(myReader.GetValue(0)))
         End While
+        For i As Integer = 0 To categoryitems.Count - 1
+            Dim ItemShadow As New Panel With {.BackColor = Color.Black,
+            .ForeColor = Color.White, .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(100, 100)}
+            Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
+            .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
+            Dim menuitem As New BorderlessButton(sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i))) With {.Parent = itemborder}
 
+        Next
     End Sub
     '---Tab Changing System
 
@@ -258,4 +277,24 @@ Public Class POSSystem
         End If
     End Sub
 
+End Class
+
+Public Class BorderlessButton
+    Inherits Button
+
+    Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
+        MyBase.OnPaint(pevent)
+        Me.FlatAppearance.BorderSize = 0
+        Me.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60)
+        Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
+    End Sub
+
+    Public Sub New(newText As String)
+        Me.Text = newText
+        Me.BackColor = Color.FromArgb(40, 40, 40)
+        Me.ForeColor = Color.White
+        Me.Dock = DockStyle.Fill
+        Me.FlatStyle = FlatStyle.Flat
+        Me.Name = newText
+    End Sub
 End Class

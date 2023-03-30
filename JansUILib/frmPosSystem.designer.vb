@@ -307,6 +307,7 @@ Partial Class POSSystem
         Me.Panel88 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.tmrMain = New System.Windows.Forms.Timer(Me.components)
+        Me.FlwMenuItemGrid = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlBackground.SuspendLayout()
         Me.tblMain.SuspendLayout()
         Me.pnlTopBar.SuspendLayout()
@@ -390,6 +391,7 @@ Partial Class POSSystem
         Me.Panel10.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.Panel12.SuspendLayout()
+        Me.Panel13.SuspendLayout()
         Me.pnlusernameOuterBlack.SuspendLayout()
         Me.pnlUsernameBorder.SuspendLayout()
         Me.pnlUsernameInnerBlackLine.SuspendLayout()
@@ -2083,6 +2085,7 @@ Partial Class POSSystem
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.Panel13.Controls.Add(Me.FlwMenuItemGrid)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel13.Location = New System.Drawing.Point(1, 1)
         Me.Panel13.Margin = New System.Windows.Forms.Padding(0)
@@ -4023,6 +4026,15 @@ Partial Class POSSystem
         '
         Me.tmrMain.Enabled = True
         '
+        'FlwMenuItemGrid
+        '
+        Me.FlwMenuItemGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlwMenuItemGrid.Location = New System.Drawing.Point(1, 1)
+        Me.FlwMenuItemGrid.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlwMenuItemGrid.Name = "FlwMenuItemGrid"
+        Me.FlwMenuItemGrid.Size = New System.Drawing.Size(918, 545)
+        Me.FlwMenuItemGrid.TabIndex = 0
+        '
         'POSSystem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4129,6 +4141,7 @@ Partial Class POSSystem
         Me.Panel10.ResumeLayout(False)
         Me.Panel11.ResumeLayout(False)
         Me.Panel12.ResumeLayout(False)
+        Me.Panel13.ResumeLayout(False)
         Me.pnlusernameOuterBlack.ResumeLayout(False)
         Me.pnlUsernameBorder.ResumeLayout(False)
         Me.pnlUsernameInnerBlackLine.ResumeLayout(False)
@@ -4532,4 +4545,5 @@ Partial Class POSSystem
     Friend WithEvents Panel394 As Panel
     Friend WithEvents Panel395 As Panel
     Friend WithEvents btnContinueNotification As Button
+    Friend WithEvents FlwMenuItemGrid As FlowLayoutPanel
 End Class
