@@ -146,7 +146,7 @@ Public Class POSSystem
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
             Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
             Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            Dim menuitem As New BorderlessButton(categoryitems(i), sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
 
         Next
     End Sub
@@ -284,6 +284,17 @@ End Class
 Public Class BorderlessButton
     Inherits Button
 
+    Private Property _UID As Integer
+
+    Public Property UID() As Integer
+        Get
+            Return _UID
+        End Get
+        Set(ByVal value As Integer)
+            _UID = value
+        End Set
+    End Property
+
     Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
         MyBase.OnPaint(pevent)
         Me.FlatAppearance.BorderSize = 0
@@ -291,7 +302,8 @@ Public Class BorderlessButton
         Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
     End Sub
 
-    Public Sub New(newText As String)
+    Public Sub New(newUID As Integer, newText As String)
+        Me.UID = newUID
         Me.Text = newText
         Me.BackColor = Color.FromArgb(40, 40, 40)
         Me.ForeColor = Color.White
