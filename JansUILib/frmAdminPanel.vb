@@ -21,7 +21,7 @@ Public Class AdminPanel
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
 
-    Dim MenuCategories As New List(Of String)()
+    ReadOnly MenuCategories As New List(Of String)()
 
     '---Winforms Init' 
 
@@ -76,7 +76,7 @@ Public Class AdminPanel
     End Sub
 
     'Load Values from Menu Database
-    Public Function sqlReadMenuValue(command As String)
+    Public Function SqlReadMenuValue(command As String)
         Dim cmd As New OleDbCommand(command, menuconn)
         myReader = cmd.ExecuteReader()
         While myReader.Read()

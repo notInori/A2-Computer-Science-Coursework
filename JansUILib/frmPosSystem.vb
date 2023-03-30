@@ -41,7 +41,7 @@ Public Class POSSystem
     End Function
 
     'Read from Menu Database
-    Public Function sqlReadMenuValue(command As String)
+    Public Function SqlReadMenuValue(command As String)
         Dim cmd As New OleDbCommand(command, menuconn)
         myReader = cmd.ExecuteReader()
         While myReader.Read()
@@ -287,14 +287,14 @@ End Class
 Public Class BorderlessButton
     Inherits Button
 
-    Private Property _UID As Integer
+    Private Property P_UID As Integer
 
     Public Property UID() As Integer
         Get
-            Return _UID
+            Return P_UID
         End Get
         Set(ByVal value As Integer)
-            _UID = value
+            P_UID = value
         End Set
     End Property
 
