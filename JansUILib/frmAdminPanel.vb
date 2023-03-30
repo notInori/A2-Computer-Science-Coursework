@@ -161,6 +161,14 @@ Public Class AdminPanel
             cntrl.Visible = False
         Next
 
+        'Undocks all tab panels and hides them
+        If sender.forecolor = Color.FromArgb(150, 150, 150) Then
+            For Each menuscreen As Control In Panel1.Controls.OfType(Of Panel)
+                menuscreen.Dock = DockStyle.None
+                menuscreen.Height = 0
+            Next
+        End If
+
         'Darkens all tab indicator text
         For Each lbl As Control In TblTabsContainer.Controls.OfType(Of Label)
             lbl.ForeColor = Color.FromArgb(150, 150, 150)
@@ -168,12 +176,6 @@ Public Class AdminPanel
 
         'Hightlights selected tab with accent color
         sender.ForeColor = accentColor
-
-        'Undocks all tab panels and hides them
-        For Each menuscreen As Control In Panel1.Controls.OfType(Of Panel)
-            menuscreen.Dock = DockStyle.None
-            menuscreen.Height = 0
-        Next
 
         'Docks the selected tab panel and accents selected tab indicator
         If sender Is lblTabSel1 Then
