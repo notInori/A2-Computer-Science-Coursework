@@ -5,14 +5,13 @@ Public Class AdminPanel
     '---Init'
 
     'Client Info Variables
-    Public Shared ReadOnly businessName As String = ""
-    Public Shared ReadOnly versionNumber As String = "[Dev Build]"
     ReadOnly currentUser As String = "Admin"
     Dim UID As Integer
 
     'Variables Init'
-    Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
+    Public accentColor As Color = Color.FromArgb(255, 255, 255)
     Dim selectedUID As New Integer
+    ReadOnly MenuCategories As New List(Of String)()
 
     'Database Variables Init
     Dim myReader As OleDbDataReader
@@ -20,8 +19,6 @@ Public Class AdminPanel
 
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
-
-    ReadOnly MenuCategories As New List(Of String)()
 
     '---Winforms Init' 
 
@@ -409,7 +406,7 @@ Public Class AdminPanel
 
     'Timer Tick Update
     Private Sub TmrMain_Tick(sender As Object, e As EventArgs) Handles tmrMain.Tick
-        lblTitle.Text = "POS SYSTEM | " & versionNumber & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
+        lblTitle.Text = "POS SYSTEM | " & POSSystem.versionNumber & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
 End Class

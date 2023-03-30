@@ -14,6 +14,7 @@ Public Class POSSystem
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
     Public ReadOnly UIfont = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+    ReadOnly MenuCatergories As New List(Of String)()
 
     '---Database Variables Init
 
@@ -25,8 +26,6 @@ Public Class POSSystem
 
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
-
-    ReadOnly MenuCatergories As New List(Of String)()
 
     '---Winforms Init' 
 
