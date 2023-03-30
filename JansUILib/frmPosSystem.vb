@@ -1,5 +1,4 @@
-﻿Imports System.Configuration
-Imports System.Data.OleDb
+﻿Imports System.Data.OleDb
 
 Public Class POSSystem
 
@@ -9,7 +8,7 @@ Public Class POSSystem
     Dim UID As Integer
     Public Shared ReadOnly businessName As String = ""
     Public Shared ReadOnly versionNumber As String = "[Dev Build]"
-    Public Shared currentUser As String = "Dev"
+    Public currentUser As String = "Dev"
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
