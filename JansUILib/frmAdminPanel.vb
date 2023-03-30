@@ -269,8 +269,10 @@ Public Class AdminPanel
             TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)
 
             'Display User Personal Info
+            LblStaffUID.Text = selectedUID
             TbxFirstName.Text = SqlReadVAlue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)
             TbxLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
+            'Display Job Status
             TbxJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
             'Display User Performance
             LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
@@ -299,6 +301,7 @@ Public Class AdminPanel
     Private Sub ClearUserDataFields(sender As Object, e As EventArgs) Handles BtnClear.Click
         selectedUID = Nothing
         lbxUsernames.SelectedItem = Nothing
+        LblStaffUID.Text = "[UID]"
         TbxUsername.Clear()
         TbxPassword.Clear()
         TbxFirstName.Clear()
