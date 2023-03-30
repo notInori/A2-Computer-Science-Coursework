@@ -9910,12 +9910,12 @@ Partial Class AdminPanel
         Me.LblStaffUID.Dock = System.Windows.Forms.DockStyle.Right
         Me.LblStaffUID.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblStaffUID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.LblStaffUID.Location = New System.Drawing.Point(373, 0)
+        Me.LblStaffUID.Location = New System.Drawing.Point(421, 0)
         Me.LblStaffUID.Margin = New System.Windows.Forms.Padding(0, 0, 5, 0)
         Me.LblStaffUID.Name = "LblStaffUID"
-        Me.LblStaffUID.Size = New System.Drawing.Size(70, 24)
+        Me.LblStaffUID.Size = New System.Drawing.Size(22, 24)
         Me.LblStaffUID.TabIndex = 10
-        Me.LblStaffUID.Text = "[UID]"
+        Me.LblStaffUID.Text = "0"
         Me.LblStaffUID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label64
