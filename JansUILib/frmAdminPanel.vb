@@ -159,6 +159,17 @@ Public Class AdminPanel
 
     '---UI Library Functions
 
+    'Patch bug where process not killed due to main form being hidden
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+        Const WM_SYSCOMMAND As Integer = &H112
+        Const SC_CLOSE As Integer = &HF060
+        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_CLOSE Then
+            Application.Exit()
+        Else
+            MyBase.WndProc(m)
+        End If
+    End Sub
+
     'Change Current Program Tab
     Private Sub ChangeTab(sender As Object, e As EventArgs) Handles lblTabSel1.Click, lblTabSel2.Click, lblTabSel3.Click, lblTabSel4.Click, lblTabSel5.Click
 
@@ -202,8 +213,7 @@ Public Class AdminPanel
         End If
     End Sub
 
-    '---Change Colourisable Accents in UI
-
+    'Change Colourisable Accents in UI
     Public Sub UpdateAccent()
         'Groupbox Topbar Color Updating
         Panel8.BackColor = accentColor

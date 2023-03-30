@@ -107,7 +107,6 @@ Public Class POSSystem
         tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
     End Sub
 
-
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         Const WM_SYSCOMMAND As Integer = &H112
         Const SC_CLOSE As Integer = &HF060
