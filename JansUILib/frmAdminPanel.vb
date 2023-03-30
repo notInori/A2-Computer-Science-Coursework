@@ -82,41 +82,41 @@ Public Class AdminPanel
         myReader = cmd.ExecuteReader
         While myReader.Read()
             Dim value As String = CStr(myReader.GetValue(0))
-            If Not MenuCatergories.Contains(value) Then
-                MenuCatergories.Add(value)
+            If Not MenuCategories.Contains(value) Then
+                MenuCategories.Add(value)
             End If
         End While
 
         'Adds the first item in the selector
-        tblMenuTabsContainer.ColumnCount = 1
-        tblMenuTabsContainer.ColumnStyles.RemoveAt(1)
-        For i As Integer = 0 To MenuCatergories.Count - 1
-            tblMenuTabsContainer.ColumnCount += 1
-            tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
-            Dim TabLabel As New Label With {.Name = MenuCatergories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCatergories(i))}
-            tblMenuTabsContainer.Controls.Add(TabLabel, CInt(tblMenuTabsContainer.ColumnCount), 0)
-            tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
-            AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
-                                           Dim currentColumn As Integer = tblMenuTabsContainer.GetColumn(sender)
-                                           ChangeMenuTab(MenuCatergories(currentColumn - 2))
-                                           For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Panel)
-                                               If tblMenuTabsContainer.GetColumn(cntrl) = currentColumn Then
-                                                   cntrl.BackColor = Color.White
-                                               Else
-                                                   cntrl.BackColor = Color.Transparent
-                                               End If
-                                           Next
-                                           For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Label)
-                                               If cntrl Is sender Then
-                                                   cntrl.ForeColor = Color.White
-                                               Else
-                                                   cntrl.ForeColor = Color.FromArgb(150, 150, 150)
-                                               End If
-                                           Next
-                                       End Sub
-        Next
-        tblMenuTabsContainer.ColumnCount += 2
-        tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
+        'tblMenuTabsContainer.ColumnCount = 1
+        'tblMenuTabsContainer.ColumnStyles.RemoveAt(1)
+        'For i As Integer = 0 To MenuCategories.Count - 1
+        '    tblMenuTabsContainer.ColumnCount += 1
+        '    tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
+        '    Dim TabLabel As New Label With {.Name = MenuCategories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCategories(i))}
+        '    tblMenuTabsContainer.Controls.Add(TabLabel, CInt(tblMenuTabsContainer.ColumnCount), 0)
+        '    tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
+        '    AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
+        '                                   Dim currentColumn As Integer = tblMenuTabsContainer.GetColumn(sender)
+        '                                   ChangeMenuTab(MenuCategories(currentColumn - 2))
+        '                                   For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Panel)
+        '                                       If tblMenuTabsContainer.GetColumn(cntrl) = currentColumn Then
+        '                                           cntrl.BackColor = Color.White
+        '                                       Else
+        '                                           cntrl.BackColor = Color.Transparent
+        '                                       End If
+        '                                   Next
+        '                                   For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Label)
+        '                                       If cntrl Is sender Then
+        '                                           cntrl.ForeColor = Color.White
+        '                                       Else
+        '                                           cntrl.ForeColor = Color.FromArgb(150, 150, 150)
+        '                                       End If
+        '                                   Next
+        '                               End Sub
+        'Next
+        'tblMenuTabsContainer.ColumnCount += 2
+        'tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
     End Sub
 
     '---UI Library Functions
