@@ -269,9 +269,9 @@ Public Class AdminPanel
             TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)
 
             'Display User Personal Info
-            LblFirstName.Text = SqlReadVAlue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)
-            LblLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
-            LblJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
+            TbxFirstName.Text = SqlReadVAlue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)
+            TbxLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
+            TbxJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
             'Display User Performance
             LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
         End If
@@ -301,9 +301,9 @@ Public Class AdminPanel
         lbxUsernames.SelectedItem = Nothing
         TbxUsername.Clear()
         TbxPassword.Clear()
-        LblFirstName.Text = "[FIRST NAME]"
-        LblLastName.Text = "[LAST NAME]"
-        LblJobStatus.Text = "[JOB STATUS]"
+        TbxFirstName.Clear()
+        TbxLastName.Clear()
+        TbxJobStatus.Clear()
         LblTotalHours.Text = "0 Hrs"
 
     End Sub
