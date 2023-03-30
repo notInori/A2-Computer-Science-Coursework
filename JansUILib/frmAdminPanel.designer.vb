@@ -4969,14 +4969,14 @@ Partial Class AdminPanel
         Me.TableLayoutPanel22.Controls.Add(Me.Panel214, 0, 0)
         Me.TableLayoutPanel22.Controls.Add(Me.Panel215, 0, 1)
         Me.TableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel22.Location = New System.Drawing.Point(176, 0)
+        Me.TableLayoutPanel22.Location = New System.Drawing.Point(116, 0)
         Me.TableLayoutPanel22.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel22.Name = "TableLayoutPanel22"
         Me.TableLayoutPanel22.RowCount = 3
         Me.TableLayoutPanel22.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99999!))
         Me.TableLayoutPanel22.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
         Me.TableLayoutPanel22.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel22.Size = New System.Drawing.Size(296, 24)
+        Me.TableLayoutPanel22.Size = New System.Drawing.Size(356, 24)
         Me.TableLayoutPanel22.TabIndex = 19
         '
         'Panel210
@@ -4988,7 +4988,7 @@ Partial Class AdminPanel
         Me.Panel210.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel210.Name = "Panel210"
         Me.Panel210.Padding = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.Panel210.Size = New System.Drawing.Size(296, 12)
+        Me.Panel210.Size = New System.Drawing.Size(356, 12)
         Me.Panel210.TabIndex = 8
         '
         'Panel211
@@ -5000,7 +5000,7 @@ Partial Class AdminPanel
         Me.Panel211.Location = New System.Drawing.Point(0, 0)
         Me.Panel211.Name = "Panel211"
         Me.Panel211.Padding = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.Panel211.Size = New System.Drawing.Size(295, 12)
+        Me.Panel211.Size = New System.Drawing.Size(355, 12)
         Me.Panel211.TabIndex = 9
         '
         'Panel212
@@ -5012,7 +5012,7 @@ Partial Class AdminPanel
         Me.Panel212.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel212.Name = "Panel212"
         Me.Panel212.Padding = New System.Windows.Forms.Padding(0, 1, 1, 0)
-        Me.Panel212.Size = New System.Drawing.Size(294, 12)
+        Me.Panel212.Size = New System.Drawing.Size(354, 12)
         Me.Panel212.TabIndex = 0
         '
         'Panel213
@@ -5021,7 +5021,7 @@ Partial Class AdminPanel
         Me.Panel213.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel213.Location = New System.Drawing.Point(0, 1)
         Me.Panel213.Name = "Panel213"
-        Me.Panel213.Size = New System.Drawing.Size(293, 11)
+        Me.Panel213.Size = New System.Drawing.Size(353, 11)
         Me.Panel213.TabIndex = 0
         '
         'Panel214
@@ -5031,7 +5031,7 @@ Partial Class AdminPanel
         Me.Panel214.Location = New System.Drawing.Point(0, 10)
         Me.Panel214.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel214.Name = "Panel214"
-        Me.Panel214.Size = New System.Drawing.Size(296, 1)
+        Me.Panel214.Size = New System.Drawing.Size(356, 1)
         Me.Panel214.TabIndex = 1
         '
         'Panel215
@@ -5043,7 +5043,7 @@ Partial Class AdminPanel
         Me.Panel215.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel215.Name = "Panel215"
         Me.Panel215.Padding = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.Panel215.Size = New System.Drawing.Size(296, 1)
+        Me.Panel215.Size = New System.Drawing.Size(356, 1)
         Me.Panel215.TabIndex = 0
         '
         'Panel216
@@ -5052,7 +5052,7 @@ Partial Class AdminPanel
         Me.Panel216.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel216.Location = New System.Drawing.Point(0, 0)
         Me.Panel216.Name = "Panel216"
-        Me.Panel216.Size = New System.Drawing.Size(295, 1)
+        Me.Panel216.Size = New System.Drawing.Size(355, 1)
         Me.Panel216.TabIndex = 0
         Me.Panel216.Tag = "colorise"
         '
@@ -5065,9 +5065,9 @@ Partial Class AdminPanel
         Me.Label43.Image = Global.POSSystem.My.Resources.Resources.titlebar_background
         Me.Label43.Location = New System.Drawing.Point(22, 0)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(154, 24)
+        Me.Label43.Size = New System.Drawing.Size(94, 24)
         Me.Label43.TabIndex = 18
-        Me.Label43.Text = "User Options"
+        Me.Label43.Text = "Options"
         '
         'TableLayoutPanel23
         '
