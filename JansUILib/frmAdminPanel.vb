@@ -12,7 +12,6 @@ Public Class AdminPanel
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
-    ReadOnly cDialog As New ColorDialog()
     Dim selectedUID As New Integer
 
     'Database Variables Init
