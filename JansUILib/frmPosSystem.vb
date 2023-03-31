@@ -133,9 +133,9 @@ Public Class POSSystem
             .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(125, 125)}
             Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
-            Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
+            Dim price As Decimal = SqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
             Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(categoryitems(i), sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            Dim menuitem As New BorderlessButton(categoryitems(i), SqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
 
         Next
     End Sub
