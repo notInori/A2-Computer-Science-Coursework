@@ -117,7 +117,6 @@ Public Class POSSystem
         ChangeTab(lblTabSel1, e) 'Load first program tab
     End Sub
 
-
     '---UI Functions
 
     '---Menu Tab Changing System
