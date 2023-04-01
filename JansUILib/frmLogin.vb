@@ -7,39 +7,18 @@ Public Class AuthLogin
 
     '---Init Database
 
-    'Variables
-    Dim myReader As OleDbDataReader
     'Database Connection
-    ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
-    Dim UserData As New DatabaseInterface(".\UserData.accdb")
-
-    '---Database Functions
-
-    'Read From Database
-    Public Function SqlReadValue(command As String)
-        Dim cmd As New OleDbCommand(command, conn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            Return myReader.GetValue(0)
-        End While
-        Return Nothing
-    End Function
+    ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
 
     'Load Usernames
     Public Sub LoadUsernames()
-        'conn.Open()
-        'CbxUsername.Items.Clear()
-        'Dim cmd As New OleDbCommand("SELECT Username FROM UserAuth", conn)
-        'myReader = cmd.ExecuteReader
-        'While myReader.Read
-        '    CbxUsername.Items.Add(myReader("Username"))
-        'End While
         CbxUsername.Items.AddRange(UserData.ReadValue("SELECT Username From UserAuth"))
     End Sub
 
     'Authenticates the User
     Private Function AuthUser(ByVal username As String, ByVal password As String)
-        Dim storedPassword = SqlReadValue("SELECT PIN FROM UserAuth WHERE (Username='" & username & "')")
+        Dim storedPassword = UserData.ReadValue("SELECT PIN FROM UserAuth WHERE (Username='" & username & "')")
+        storedPassword = storedPassword(0)
         If password = CStr(storedPassword) And CStr(storedPassword) <> "" Then
             Return True 'Returns true if combination of username and password is correct
         Else
@@ -49,18 +28,18 @@ Public Class AuthLogin
 
     '---Winforms Dragging
 
-    'Winforms Init' 
-    Private Sub UserLogin_OnLoad(ByVal qsender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        loadUsernames()
-        lblCurrentVersion.Text = POSSystem.versionNumber
-        lblShopName.Text = POSSystem.businessName
-        pnlWindowContents.Dock = DockStyle.Fill
-        pnlWindowContents.BringToFront()
-    End Sub
-
     'Winforms Variable Init'
     Private Property MoveForm As Boolean
     Private Property MoveForm_MousePositiion As Point
+
+    'Winforms Init' 
+    Private Sub UserLogin_OnLoad(ByVal qsender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadUsernames()
+        lblCurrentVersion.Text = ProgramData.ProgramVersion
+        lblShopName.Text = ProgramData.BusinessName
+        pnlWindowContents.Dock = DockStyle.Fill
+        pnlWindowContents.BringToFront()
+    End Sub
 
     'Winforms Dragging Events
     Private Sub WindowDragging_MouseDown(sender As Object, e As MouseEventArgs) Handles tblWindow.MouseDown, pnlBackground.MouseDown, pnlWindowContents.MouseDown, pnlGroupBoxInner.MouseDown, pnlGroupUsernameTextbox.MouseDown, lblUsername.MouseDown, TableLayoutPanel2.MouseDown, TableLayoutPanel1.MouseDown, lblTitle.MouseDown, Panel5.MouseDown, Panel314.MouseDown, lblShopName.MouseDown, Label33.MouseDown, Label2.MouseDown, lblCurrentVersion.MouseDown
@@ -88,9 +67,9 @@ Public Class AuthLogin
 
     'User Auth Button
     Private Sub AuthUser(sender As Object, e As EventArgs) Handles btnLogin.Click
-        If CbxUsername.Text = "admin" And authUser(CbxUsername.Text, TbxPassword.Text) Then
+        If CbxUsername.Text = "admin" And AuthUser(CbxUsername.Text, TbxPassword.Text) Then
             AdminPanel.Show()
-        ElseIf authUser(CbxUsername.Text, TbxPassword.Text) Then
+        ElseIf AuthUser(CbxUsername.Text, TbxPassword.Text) Then
             POSSystem.currentUser = CbxUsername.Text
             POSSystem.Show()
         Else
@@ -101,7 +80,7 @@ Public Class AuthLogin
             CbxUsername.Text = ""
             TbxPassword.Text = ""
             Me.Hide()
-            conn.Close()
+
         End If
     End Sub
 
@@ -115,7 +94,6 @@ Public Class AuthLogin
 
     'Exit Program
     Private Sub WindowExit(sender As Object, e As EventArgs) Handles btnExit.Click
-        conn.Close()
         Application.Exit()
     End Sub
 

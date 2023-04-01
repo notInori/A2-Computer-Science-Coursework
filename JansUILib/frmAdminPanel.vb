@@ -1,6 +1,4 @@
-﻿Imports System.Data.OleDb
-
-Public Class AdminPanel
+﻿Public Class AdminPanel
 
     '---Init'
 
@@ -14,17 +12,13 @@ Public Class AdminPanel
     ReadOnly MenuCategories As New List(Of String)()
 
     'Database Variables Init
-    Dim myReader As OleDbDataReader
-    ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
-
-    'Menu Database Connection
-    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
+    ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
+    ReadOnly MenuData As New DatabaseInterface(".\Menu.accdb")
 
     '---Winforms Init' 
 
     'Init tab system and load accent color
     Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        conn.Open()
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)
             cntrl.Width = 0
         Next
@@ -37,98 +31,59 @@ Public Class AdminPanel
 
     '---Database Functions
 
-    'Read Value from Database
-    Public Function SqlReadVAlue(command As String)
-        Dim cmd As New OleDbCommand(command, conn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            Return myReader.GetValue(0)
-        End While
-        Return Nothing
-    End Function
-
     'Load Usernames
-    Private Sub LoadUsernames()
-        Dim cmd As New OleDbCommand("SELECT Username FROM UserAuth", conn)
-        myReader = cmd.ExecuteReader
+    Public Sub LoadUsernames()
+        Dim UsernameArray As Array = UserData.ReadValue("SELECT Username From UserAuth")
         lbxUsernames.Items.Clear()
-        While myReader.Read
-            If myReader("Username") <> "admin" Then
-                lbxUsernames.Items.Add(myReader("Username"))
-            End If
-        End While
+        For i = 1 To UsernameArray.Length() - 1
+            lbxUsernames.Items.Add(UsernameArray(i))
+        Next
     End Sub
 
     'Load User Configs
     Private Sub LoadUserConfig()
-        UID = CInt(SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & currentUser & "')"))
-        accentColor = Color.FromArgb(SqlReadVAlue("SELECT Accent FROM UserConfig WHERE (UID=" & UID & ")"))
+        UID = CInt(UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & currentUser & "')")(0))
+        accentColor = Color.FromArgb(UserData.ReadValue("SELECT Accent FROM UserConfig WHERE (UID=" & UID & ")")(0))
         UpdateAccent()
     End Sub
 
-    'Save User Config
-    Private Sub SaveConfig(command As String)
-        Dim cmd As New OleDbCommand(command, conn)
-        cmd.ExecuteNonQuery()
-    End Sub
-
-    'Load Values from Menu Database
-    Public Function SqlReadMenuValue(command As String)
-        Dim cmd As New OleDbCommand(command, menuconn)
-        myReader = cmd.ExecuteReader()
-        While myReader.Read()
-            Return myReader.GetValue(0)
-        End While
-        Return Nothing
-    End Function
-
     '---Menu Tab Changing System
-
-    'Change Current Menu Tab
     Private Sub ChangeMenuTab(newTab As String)
         FlwMenuItemGrid.Controls.Clear()
-        Dim categoryitems As New List(Of String)()
-        Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            categoryitems.Add(CStr(myReader.GetValue(0)))
-        End While
-        For i As Integer = 0 To categoryitems.Count - 1
+        Dim categoryitems = MenuData.ReadValue("Select UID From Menu Where Category='" & newTab & "'")
+        For i As Integer = 0 To categoryitems.length - 1
             Dim ItemShadow As New Panel With {.BackColor = Color.Black,
             .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(125, 125)}
             Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
-            Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
+            Dim price As Decimal = MenuData.ReadValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))(0)
             Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(categoryitems(i), SqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            Dim menuitem As New BorderlessButton(categoryitems(i), MenuData.ReadValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i))(0) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
             AddHandler menuitem.Click, Sub(sender As Object, e As EventArgs)
                                            LblMenuItemUID.Text = menuitem.UID
-                                           TbxDisplayName.Text = sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & menuitem.UID)
+                                           TbxDisplayName.Text = MenuData.ReadValue("SELECT [Display Name] FROM Menu WHERE UID=" & menuitem.UID)(0)
                                            TbxItemPrice.Text = FormattedString
-                                           TbxCategory.Text = sqlReadMenuValue("SELECT [Category] FROM Menu WHERE UID=" & menuitem.UID)
+                                           TbxCategory.Text = MenuData.ReadValue("SELECT [Category] FROM Menu WHERE UID=" & menuitem.UID)(0)
                                        End Sub
         Next
+
     End Sub
 
     'Load Menu Items
     Private Sub LoadMenuItems()
-        menuconn.Open()
-        Dim cmd As New OleDbCommand("SELECT Category FROM Menu", menuconn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            Dim value As String = CStr(myReader.GetValue(0))
-            If Not MenuCategories.Contains(value) Then
-                MenuCategories.Add(value)
+        Dim Menu = MenuData.ReadValue("SELECT Category FROM Menu")
+        For i = 0 To Menu.length - 1
+            If Not MenuCategories.Contains(Menu(i)) Then
+                MenuCategories.Add(Menu(i))
             End If
-        End While
-
+        Next
         'Adds the first item in the selector
         tblMenuTabsContainer.ColumnCount = 1
         tblMenuTabsContainer.ColumnStyles.RemoveAt(1)
         For i As Integer = 0 To MenuCategories.Count - 1
             tblMenuTabsContainer.ColumnCount += 1
             tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
-            Dim TabLabel As New Label With {.Name = MenuCategories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = POSSystem.UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCategories(i))}
+            Dim TabLabel As New Label With {.Name = MenuCategories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = ProgramData.UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCategories(i))}
             tblMenuTabsContainer.Controls.Add(TabLabel, CInt(tblMenuTabsContainer.ColumnCount), 0)
             tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
             AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
@@ -268,7 +223,7 @@ Public Class AdminPanel
 
         End If
         UpdateAccent()
-        SaveConfig("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
+        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
     '---Application Code
@@ -278,30 +233,30 @@ Public Class AdminPanel
     'Load selected User's Data
     Private Sub LoadSelectedUserInfo(sender As Object, e As EventArgs) Handles lbxUsernames.SelectedValueChanged
         If lbxUsernames.SelectedItem <> "" Then
-            selectedUID = SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & lbxUsernames.SelectedItem.ToString & "')")
+            selectedUID = UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & lbxUsernames.SelectedItem.ToString & "')")(0)
             'Display User Credentials
             TbxUsername.Text = lbxUsernames.SelectedItem
-            TbxPassword.Text = SqlReadVAlue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)
+            TbxPassword.Text = UserData.ReadValue("SELECT PIN FROM UserAuth WHERE UID=" & selectedUID)(0)
 
             'Display User Personal Info
             LblStaffUID.Text = selectedUID
-            TbxFirstName.Text = SqlReadVAlue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)
-            TbxLastName.Text = SqlReadVAlue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)
+            TbxFirstName.Text = UserData.ReadValue("SELECT [First Name] FROM UserData WHERE UID=" & selectedUID)(0)
+            TbxLastName.Text = UserData.ReadValue("SELECT [Last Name] FROM UserData WHERE UID=" & selectedUID)(0)
             'Display Job Status
-            TbxJobStatus.Text = SqlReadVAlue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)
-            TbxDateJoined.Text = SqlReadVAlue("SELECT [Date Employed] FROM UserData WHERE UID=" & selectedUID)
-            TbxDateDismissed.Text = SqlReadVAlue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID)
+            TbxJobStatus.Text = UserData.ReadValue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)(0)
+            TbxDateJoined.Text = UserData.ReadValue("SELECT [Date Employed] FROM UserData WHERE UID=" & selectedUID)(0)
+            TbxDateDismissed.Text = UserData.ReadValue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID)(0)
             'Display User Performance
-            LblTotalHours.Text = SqlReadVAlue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID) & " Hrs"
+            LblTotalHours.Text = UserData.ReadValue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID)(0) & " Hrs"
         End If
     End Sub
 
     'Save Changes to User's Username and Password
     Private Sub UpdateUserCredentials(sender As Object, e As EventArgs) Handles btnSave.Click
         If TbxUsername.Text <> "" And TbxPassword.Text <> "" And lbxUsernames.SelectedItem <> Nothing And InStr(TbxPassword.Text, " ") = 0 Then
-            SaveConfig("UPDATE UserAuth SET Username='" & TbxUsername.Text & "' WHERE UID=" & selectedUID)
-            SaveConfig("UPDATE UserAuth SET PIN='" & TbxPassword.Text & "' WHERE UID=" & selectedUID)
-            lbxUsernames.SelectedItem = SqlReadVAlue("SELECT Username FROM UserAuth WHERE (UID=" & selectedUID & ")")
+            UserData.SaveValue("UPDATE UserAuth SET Username='" & TbxUsername.Text & "' WHERE UID=" & selectedUID)
+            UserData.SaveValue("UPDATE UserAuth SET PIN='" & TbxPassword.Text & "' WHERE UID=" & selectedUID)
+            lbxUsernames.SelectedItem = UserData.ReadValue("SELECT Username FROM UserAuth WHERE (UID=" & selectedUID & ")")(0)
             Notification("New User Credentials for " & TbxUsername.Text & " have been saved successfully!")
         ElseIf TbxUsername.Text = "" Or TbxPassword.Text = "" Then
             Notification("Error: Fields can not be empty!")
@@ -332,14 +287,14 @@ Public Class AdminPanel
 
     'Adds New User To Database
     Private Sub AddNewUser(sender As Object, e As EventArgs) Handles BtnAddUser.Click
-        If SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") = Nothing And TbxUsername.Text <> "" And TbxPassword.Text <> "" Then
-            SaveConfig("INSERT INTO UserAuth(Username,PIN) VALUES('" & TbxUsername.Text & "','" & TbxPassword.Text & "')")
-            SaveConfig("INSERT INTO UserConfig(Accent) VALUES(-1)")
-            SaveConfig("INSERT INTO UserData DEFAULT VALUES")
-            SaveConfig("INSERT INTO UserStats DEFAULT VALUES")
+        If UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") Is Nothing And TbxUsername.Text <> "" And TbxPassword.Text <> "" Then
+            UserData.SaveValue("INSERT INTO UserAuth(Username,PIN) VALUES('" & TbxUsername.Text & "','" & TbxPassword.Text & "')")
+            UserData.SaveValue("INSERT INTO UserConfig(Accent) VALUES(-1)")
+            UserData.SaveValue("INSERT INTO UserData DEFAULT VALUES")
+            UserData.SaveValue("INSERT INTO UserStats DEFAULT VALUES")
             Notification("User " & TbxUsername.Text.ToString & " has been successfully added!")
             LoadUsernames()
-        ElseIf SqlReadVAlue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") = Nothing Then
+        ElseIf UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')")(0) = Nothing Then
             Notification("Error: Fields can not be empty!")
         Else
             Notification("Error: " & TbxUsername.Text.ToString & " already exists.")
@@ -359,11 +314,11 @@ Public Class AdminPanel
             pnlConfirmation.Height = 0
         End If
         If sender Is BtnContinueAction Then
-            Dim tempUsername As String = SqlReadVAlue("SELECT Username FROM UserAuth WHERE UID=" & selectedUID)
-            SaveConfig("DELETE FROM UserConfig WHERE UID=" & selectedUID)
-            SaveConfig("DELETE FROM UserAuth WHERE UID=" & selectedUID)
-            SaveConfig("DELETE FROM UserData WHERE UID=" & selectedUID)
-            SaveConfig("DELETE FROM UserStats WHERE UID=" & selectedUID)
+            Dim tempUsername As String = UserData.ReadValue("SELECT Username FROM UserAuth WHERE UID=" & selectedUID)(0)
+            UserData.SaveValue("DELETE FROM UserConfig WHERE UID=" & selectedUID)
+            UserData.SaveValue("DELETE FROM UserAuth WHERE UID=" & selectedUID)
+            UserData.SaveValue("DELETE FROM UserData WHERE UID=" & selectedUID)
+            UserData.SaveValue("DELETE FROM UserStats WHERE UID=" & selectedUID)
             selectedUID = Nothing
             ClearUserDataFields(sender, e)
             Notification("User " & tempUsername & " Successfully Deleted!")
@@ -385,7 +340,6 @@ Public Class AdminPanel
 
     'User Logout Button
     Private Sub UserLogOut(sender As Object, e As EventArgs) Handles BtnLogOut.Click
-        conn.Close()
         Me.Close()
         AuthLogin.Show()
         AuthLogin.LoadUsernames()
@@ -394,7 +348,7 @@ Public Class AdminPanel
     'Save Admin Password Button
     Private Sub SaveAdminPassword(sender As Object, e As EventArgs) Handles btnSaveAdminPass.Click
         If tbxAdminPassword.Text <> "" Then
-            SaveConfig("UPDATE UserAuth SET PIN='" & tbxAdminPassword.Text & "' WHERE UID=1")
+            UserData.SaveValue("UPDATE UserAuth SET PIN='" & tbxAdminPassword.Text & "' WHERE UID=1")
             Notification("New admin credentials have been set successfully!")
         Else
             Notification("Error: Field can not be empty.")
@@ -406,7 +360,7 @@ Public Class AdminPanel
 
     'Timer Tick Update
     Private Sub TmrMain_Tick(sender As Object, e As EventArgs) Handles tmrMain.Tick
-        lblTitle.Text = "POS SYSTEM | " & POSSystem.versionNumber & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
+        lblTitle.Text = "POS SYSTEM | " & ProgramData.ProgramVersion & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
 End Class

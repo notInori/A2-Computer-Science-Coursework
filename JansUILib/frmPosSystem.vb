@@ -1,96 +1,58 @@
 ﻿Imports System.Data.OleDb
-Imports System.Security.Cryptography
-Imports System.Web
-
 Public Class POSSystem
 
     '---Init'
 
     'Client Info Variables
     Dim UID As Integer
-    Public Shared ReadOnly businessName As String = ""
-    Public Shared ReadOnly versionNumber As String = "[Dev Build]"
     Public currentUser As String = "Dev"
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
-    Public ReadOnly UIfont = New Font("Consolas", 16.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
-    ReadOnly MenuCatergories As New List(Of String)()
+
+    ReadOnly MenuCategories As New List(Of String)()
     Public CurrentTicketUID As Integer = 0
 
     '---Database Variables Init
 
-    'Form Wide Datareader
-    Dim myReader As OleDbDataReader
-
-    'User Data Database Connection
-    ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
-
-    'Menu Database Connection
-    ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
-
-    'Tickets Database Connection
-    ReadOnly CustomerDataConn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source = .\CustomerData.accdb")
+    ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
+    ReadOnly menuData As New DatabaseInterface(".\Menu.accdb")
+    ReadOnly CustomerData As New DatabaseInterface(".\CustomerData.accdb")
 
     '---Winforms Init' 
 
-    'Read From Database
-    Public Function SqlReadValue(command As String)
-        Dim cmd As New OleDbCommand(command, conn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            Return myReader.GetValue(0)
-        End While
-        Return Nothing
-    End Function
-
-    'Read from Menu Database
-    Public Function SqlReadMenuValue(command As String)
-        Dim cmd As New OleDbCommand(command, menuconn)
-        myReader = cmd.ExecuteReader()
-        While myReader.Read()
-            Return myReader.GetValue(0)
-        End While
-        Return Nothing
-    End Function
-
     'Load User Configs
     Private Sub LoadUserConfig()
-        UID = CInt(SqlReadValue("SELECT UID FROM UserAuth WHERE (Username='" & currentUser & "')"))
-        accentColor = Color.FromArgb(SqlReadValue("SELECT Accent FROM UserConfig WHERE (UID=" & UID & ")"))
+        UID = UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & currentUser & "')")(0)
+        accentColor = Color.FromArgb(UserData.ReadValue(("SELECT Accent FROM UserConfig WHERE (UID=" & UID & ")"))(0))
         UpdateAccent()
     End Sub
 
     'Save User Config
     Private Sub SaveConfig()
-        Dim cmd As New OleDbCommand("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID, conn)
-        cmd.ExecuteNonQuery()
+        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
     'Load Menu Items
     Private Sub LoadMenuItems()
-        menuconn.Open()
-        Dim cmd As New OleDbCommand("SELECT Category FROM Menu", menuconn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            Dim value As String = CStr(myReader.GetValue(0))
-            If Not MenuCatergories.Contains(value) Then
-                MenuCatergories.Add(value)
+        Dim Menu = menuData.ReadValue("SELECT Category FROM Menu")
+        For i = 0 To Menu.length - 1
+            If Not MenuCategories.Contains(Menu(i)) Then
+                MenuCategories.Add(Menu(i))
             End If
-        End While
-
+        Next
         'Adds the first item in the selector
         tblMenuTabsContainer.ColumnCount = 1
         tblMenuTabsContainer.ColumnStyles.RemoveAt(1)
-        For i As Integer = 0 To MenuCatergories.Count - 1
+        For i As Integer = 0 To MenuCategories.Count - 1
             tblMenuTabsContainer.ColumnCount += 1
             tblMenuTabsContainer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize))
-            Dim TabLabel As New Label With {.Name = MenuCatergories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCatergories(i))}
+            Dim TabLabel As New Label With {.Name = MenuCategories(i), .Size = New Size(100, 100), .Margin = New Padding(0), .Padding = New Padding(5), .Font = ProgramData.UIfont, .AutoSize = True, .Dock = DockStyle.Left, .ForeColor = Color.FromArgb(150, 150, 150), .Text = CStr(MenuCategories(i))}
             tblMenuTabsContainer.Controls.Add(TabLabel, CInt(tblMenuTabsContainer.ColumnCount), 0)
             tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
             AddHandler TabLabel.Click, Sub(sender As Object, e As EventArgs)
                                            Dim currentColumn As Integer = tblMenuTabsContainer.GetColumn(sender)
-                                           ChangeMenuTab(MenuCatergories(currentColumn - 2))
+                                           ChangeMenuTab(MenuCategories(currentColumn - 2))
                                            For Each cntrl As Control In tblMenuTabsContainer.Controls.OfType(Of Panel)
                                                If tblMenuTabsContainer.GetColumn(cntrl) = currentColumn Then
                                                    cntrl.BackColor = Color.White
@@ -113,7 +75,6 @@ Public Class POSSystem
 
     'Init Winform
     Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        conn.Open()
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel) 'Init Tab Option Widths
             cntrl.Width = 0
         Next
@@ -128,20 +89,15 @@ Public Class POSSystem
     '---Menu Tab Changing System
     Private Sub ChangeMenuTab(newTab As String)
         FlwMenuItemGrid.Controls.Clear()
-        Dim categoryitems As New List(Of String)()
-        Dim cmd As New OleDbCommand("Select UID From Menu Where Category='" & newTab & "'", menuconn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read()
-            categoryitems.Add(CStr(myReader.GetValue(0)))
-        End While
-        For i As Integer = 0 To categoryitems.Count - 1
+        Dim categoryitems = menuData.ReadValue("Select UID From Menu Where Category='" & newTab & "'")
+        For i As Integer = 0 To categoryitems.length - 1
             Dim ItemShadow As New Panel With {.BackColor = Color.Black,
             .ForeColor = Color.White, .Margin = New Padding(5), .Padding = New Padding(1), .Parent = FlwMenuItemGrid, .Size = New Size(125, 125)}
             Dim itemborder As New Panel With {.BackColor = Color.FromArgb(75, 75, 75),
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
-            Dim price As Decimal = SqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
+            Dim price As Decimal = menuData.ReadValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))(0)
             Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(categoryitems(i), SqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            Dim menuitem As New BorderlessButton(categoryitems(i), menuData.ReadValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i))(0) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
 
         Next
     End Sub
@@ -241,6 +197,8 @@ Public Class POSSystem
         'Tab Label Accent Updating
         lblTabSel2.ForeColor = accentColor
 
+        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
+
     End Sub
 
     '---Application Code
@@ -253,7 +211,6 @@ Public Class POSSystem
         If Not ColorPicker.IsHandleCreated Then
             ColorPicker.Show()
         End If
-        SaveConfig()
         UpdateAccent()
     End Sub
 
@@ -268,13 +225,12 @@ Public Class POSSystem
 
     'Timer Tick Update
     Private Sub TmrMain_Tick(sender As Object, e As EventArgs) Handles tmrMain.Tick
-        lblTitle.Text = "POS SYSTEM | " & versionNumber & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
+        lblTitle.Text = "POS SYSTEM | " & ProgramData.ProgramVersion & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
     Private Sub BtnSavePassword_Click(sender As Object, e As EventArgs) Handles BtnSavePassword.Click
         If tbxPassword.Text <> "" And InStr(tbxPassword.Text, " ") = 0 Then
-            Dim cmd As New OleDbCommand("UPDATE UserAuth SET PIN='" & tbxPassword.Text & "' WHERE UID=" & UID, conn)
-            cmd.ExecuteNonQuery()
+            UserData.SaveValue("UPDATE UserAuth SET PIN='" & tbxPassword.Text & "' WHERE UID=" & UID)
             Notification("New password was set successfully!")
             tbxPassword.Clear()
         ElseIf InStr(tbxPassword.Text, " ") > 0 Then
@@ -284,7 +240,9 @@ Public Class POSSystem
             Notification("Error: Password field can not be empty!")
         End If
     End Sub
+
 End Class
+
 Public Class BorderlessButton
     Inherits Button
 
@@ -318,45 +276,16 @@ Public Class BorderlessButton
     End Sub
 
     Private Sub AddItemToTicket(sender As Object, e As EventArgs) Handles Me.Click
-        POSSystem.SqlReadMenuValue("SELECT [Display Name] From Menu Where UID=" & P_UID)
+        Dim menudata As New DatabaseInterface(".\Menu.accdb")
+        Console.WriteLine(("SELECT [Display Name] From Menu Where UID=" & P_UID)(0))
     End Sub
-
 
 End Class
 
-Public Class DatabaseInterface
+Class ProgramData
+    Public Shared Property BusinessName = ""
+    Public Shared Property ProgramVersion = "[DEV BUILD]"
+    Public Shared ReadOnly UIfont = New Font("Consolas", 16.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
 
-    '---Properties
-
-    'Definte Properties
-    Private _ConnectionString As String
-
-    'Property Functions
-    Private Sub SetpConnectionString(AutoPropertyValue As String)
-        _ConnectionString = AutoPropertyValue
-    End Sub
-
-    '---Init
-
-    'Init Function
-    Public Sub New(newFilePath As String)
-        SetpConnectionString("Provider=Microsoft.Ace.Oledb.12.0;Data Source=" & newFilePath) '.\UserData.accdb
-    End Sub
-
-    Public Function ReadValue(command As String)
-        Dim DatabaseOutput As New List(Of String)()
-        Using conn As New OleDbConnection(_ConnectionString)
-            conn.Open()
-            Dim cmd As New OleDbCommand(command, conn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            While reader.Read()
-                DatabaseOutput.Add(reader.GetValue(0))
-            End While
-            reader.Close()
-            conn.Close()
-        End Using
-        Dim ArrayOutput As Array = DatabaseOutput.ToArray
-        Return ArrayOutput
-    End Function
 End Class
 

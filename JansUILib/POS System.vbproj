@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="DatabaseInterface.vb" />
     <Compile Include="frmAdminPanel.designer.vb">
       <DependentUpon>frmAdminPanel.vb</DependentUpon>
     </Compile>
