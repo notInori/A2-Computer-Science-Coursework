@@ -199,6 +199,7 @@
         'Tab Label Accent Updating
         lblTabSel5.ForeColor = accentColor
 
+        'Save Accent Color to config
         UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
