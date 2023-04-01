@@ -33,9 +33,8 @@ Public Class DatabaseInterface
         Dim ArrayOutput As Array = DatabaseOutput.ToArray
         If ArrayOutput.Length() > 0 Then
             Return ArrayOutput
-        Else
-            Return Nothing
         End If
+        Return Nothing
     End Function
 
     Public Sub SaveValue(command As String)
