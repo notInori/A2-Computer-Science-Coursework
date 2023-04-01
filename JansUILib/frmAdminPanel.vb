@@ -198,6 +198,7 @@
         'Tab Label Accent Updating
         lblTabSel5.ForeColor = accentColor
 
+        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
     '---Notifications
@@ -220,10 +221,8 @@
         If Not ColorPicker.IsHandleCreated Then
             Dim PnlColorPicker As New ColorPicker()
             PnlColorPicker.Show()
-
         End If
         UpdateAccent()
-        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
     '---Application Code

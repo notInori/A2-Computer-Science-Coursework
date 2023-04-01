@@ -9,28 +9,21 @@ Public Class POSSystem
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
-
     ReadOnly MenuCategories As New List(Of String)()
     Public CurrentTicketUID As Integer = 0
 
     '---Database Variables Init
-
     ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
     ReadOnly menuData As New DatabaseInterface(".\Menu.accdb")
     ReadOnly CustomerData As New DatabaseInterface(".\CustomerData.accdb")
 
-    '---Winforms Init' 
+    '---Winforms Init
 
     'Load User Configs
     Private Sub LoadUserConfig()
         UID = UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & currentUser & "')")(0)
         accentColor = Color.FromArgb(UserData.ReadValue(("SELECT Accent FROM UserConfig WHERE (UID=" & UID & ")"))(0))
         UpdateAccent()
-    End Sub
-
-    'Save User Config
-    Private Sub SaveConfig()
-        UserData.SaveValue("UPDATE UserConfig SET Accent=" & accentColor.ToArgb() & " WHERE UID=" & UID)
     End Sub
 
     'Load Menu Items
@@ -166,6 +159,7 @@ Public Class POSSystem
     '---Change Colourisable Accents in UI
 
     Public Sub UpdateAccent()
+
         'Groupbox Topbar Color Updating
         Panel8.BackColor = accentColor
         For Each menuscreen As Control In Panel1.Controls.OfType(Of Panel)
@@ -216,9 +210,9 @@ Public Class POSSystem
 
     'User Logout Button
     Private Sub UserLogOut(sender As Object, e As EventArgs) Handles BtnLogOut.Click
-        Me.Close()
-        AuthLogin.Show()
         AuthLogin.LoadUsernames()
+        AuthLogin.Show()
+        Me.Close()
     End Sub
 
     '---Watermark
@@ -279,13 +273,6 @@ Public Class BorderlessButton
         Dim menudata As New DatabaseInterface(".\Menu.accdb")
         Console.WriteLine(("SELECT [Display Name] From Menu Where UID=" & P_UID)(0))
     End Sub
-
-End Class
-
-Class ProgramData
-    Public Shared Property BusinessName = ""
-    Public Shared Property ProgramVersion = "[DEV BUILD]"
-    Public Shared ReadOnly UIfont = New Font("Consolas", 16.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
 
 End Class
 
