@@ -22,19 +22,21 @@ Public Class DatabaseInterface
         Dim DatabaseOutput As New List(Of String)()
         Using conn As New OleDbConnection(_ConnectionString)
             conn.Open()
-            Dim cmd As New OleDbCommand(command, conn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            While reader.Read()
-                DatabaseOutput.Add(reader.GetValue(0))
-            End While
-            reader.Close()
-            conn.Close()
+            Using cmd As New OleDbCommand(command, conn)
+                Using reader As OleDbDataReader = cmd.ExecuteReader()
+                    If reader.HasRows Then
+                        While reader.Read()
+                            DatabaseOutput.Add(reader.GetValue(0))
+                        End While
+                        Return DatabaseOutput.ToArray
+                    Else
+                        Return Nothing
+                    End If
+                    reader.Close()
+                    conn.Close()
+                End Using
+            End Using
         End Using
-        Dim ArrayOutput As Array = DatabaseOutput.ToArray
-        If ArrayOutput.Length() > 0 Then
-            Return ArrayOutput
-        End If
-        Return Nothing
     End Function
 
     Public Sub SaveValue(command As String)
