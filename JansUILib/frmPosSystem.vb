@@ -3,8 +3,8 @@
     '---Init'
 
     'Client Info Variables
-    Dim UID As Integer
-    Public currentUser As String = "Dev"
+    Dim UID As Integer = 0
+    Public currentUser As String = "[USER]"
 
     'Variables Init'
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)

@@ -4,7 +4,7 @@
 
     'Client Info Variables
     ReadOnly currentUser As String = "Admin"
-    Dim UID As Integer
+    Dim UID As Integer = 0
 
     'Variables Init'
     Public accentColor As Color = Color.FromArgb(255, 255, 255)
