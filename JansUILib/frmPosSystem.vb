@@ -14,6 +14,7 @@ Public Class POSSystem
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
     Public ReadOnly UIfont = New Font("Consolas", 16.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
     ReadOnly MenuCatergories As New List(Of String)()
+    Public CurrentTicketUID As Integer = 0
 
     '---Database Variables Init
 
@@ -21,10 +22,13 @@ Public Class POSSystem
     Dim myReader As OleDbDataReader
 
     'User Data Database Connection
-    ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
+    ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
 
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
+
+    'Tickets Database Connection
+    ReadOnly CustomerDataConn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source = .\CustomerData.accdb")
 
     '---Winforms Init' 
 
@@ -278,39 +282,44 @@ Public Class POSSystem
             Notification("Error: Password field can not be empty!")
         End If
     End Sub
-
 End Class
-
 Public Class BorderlessButton
-    Inherits Button
+        Inherits Button
 
-    Private Property P_UID As Integer
+        Private Property P_UID As Integer
 
-    Public Property UID() As Integer
-        Get
-            Return P_UID
-        End Get
-        Set(ByVal value As Integer)
-            P_UID = value
-        End Set
-    End Property
+        Public Property UID() As Integer
+            Get
+                Return P_UID
+            End Get
+            Set(ByVal value As Integer)
+                P_UID = value
+            End Set
+        End Property
 
-    Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
-        MyBase.OnPaint(pevent)
-        Me.FlatAppearance.BorderSize = 0
-        Me.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60)
-        Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
-    End Sub
+        Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
+            MyBase.OnPaint(pevent)
+            Me.FlatAppearance.BorderSize = 0
+            Me.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60)
+            Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
+        End Sub
 
-    Public Sub New(newUID As Integer, newText As String)
-        Me.UID = newUID
-        Me.Text = newText
-        Me.BackColor = Color.FromArgb(40, 40, 40)
-        Me.ForeColor = Color.White
-        Me.Dock = DockStyle.Fill
-        Me.FlatStyle = FlatStyle.Flat
-        Me.Name = newText
-        Me.Font = New Font("Consolas", 12.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
-    End Sub
+        Public Sub New(newUID As Integer, newText As String)
+            Me.UID = newUID
+            Me.Text = newText
+            Me.BackColor = Color.FromArgb(40, 40, 40)
+            Me.ForeColor = Color.White
+            Me.Dock = DockStyle.Fill
+            Me.FlatStyle = FlatStyle.Flat
+            Me.Name = newText
+            Me.Font = New Font("Consolas", 12.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
+        End Sub
 
-End Class
+        Private Sub AddItemToTicket(sender As Object, e As EventArgs) Handles Me.Click
+            POSSystem.SqlReadMenuValue("SELECT [Display Name] From Menu Where UID=" & P_UID)
+        End Sub
+
+
+    End Class
+
+

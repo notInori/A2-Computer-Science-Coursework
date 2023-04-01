@@ -15,7 +15,7 @@ Public Class AdminPanel
 
     'Database Variables Init
     Dim myReader As OleDbDataReader
-    ReadOnly conn As New OleDbConnection(AuthLogin.UserDataConnectionString)
+    ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
 
     'Menu Database Connection
     ReadOnly menuconn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\Menu.accdb")
@@ -100,7 +100,7 @@ Public Class AdminPanel
             .ForeColor = Color.White, .Padding = New Padding(1), .Parent = ItemShadow, .Dock = DockStyle.Fill}
             Dim price As Decimal = sqlReadMenuValue("SELECT [Price] FROM Menu WHERE UID=" & categoryitems(i))
             Dim FormattedString As String = "£" & String.Format("{0:n}", price)
-            Dim menuitem As New BorderlessButton(categoryitems(i), sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
+            Dim menuitem As New BorderlessButton(categoryitems(i), SqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & categoryitems(i)) & Environment.NewLine & FormattedString) With {.Parent = itemborder}
             AddHandler menuitem.Click, Sub(sender As Object, e As EventArgs)
                                            LblMenuItemUID.Text = menuitem.UID
                                            TbxDisplayName.Text = sqlReadMenuValue("SELECT [Display Name] FROM Menu WHERE UID=" & menuitem.UID)
