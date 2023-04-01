@@ -244,10 +244,17 @@
             'Display Job Status
             TbxJobStatus.Text = UserData.ReadValue("SELECT [Job Status] FROM UserData WHERE UID=" & selectedUID)(0)
             TbxDateJoined.Text = UserData.ReadValue("SELECT [Date Employed] FROM UserData WHERE UID=" & selectedUID)(0)
-            TbxDateDismissed.Text = UserData.ReadValue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID)(0)
+
+            'Fix Null DB Exception Error
+            If UserData.ReadValue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID) IsNot Nothing Then
+                TbxDateDismissed.Text = UserData.ReadValue("SELECT [Date Dismissed] FROM UserData WHERE UID=" & selectedUID)(0)
+            Else
+                TbxDateDismissed.Text = "N/A"
+            End If
+
             'Display User Performance
             LblTotalHours.Text = UserData.ReadValue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID)(0) & " Hrs"
-        End If
+            End If
     End Sub
 
     'Save Changes to User's Username and Password

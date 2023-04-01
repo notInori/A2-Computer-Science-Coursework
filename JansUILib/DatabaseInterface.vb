@@ -19,14 +19,18 @@ Public Class DatabaseInterface
     End Sub
 
     Public Function ReadValue(command As String)
-        Dim DatabaseOutput As New List(Of String)()
+        Dim DatabaseOutput As New List(Of Object)()
         Using conn As New OleDbConnection(_ConnectionString)
             conn.Open()
             Using cmd As New OleDbCommand(command, conn)
                 Using reader As OleDbDataReader = cmd.ExecuteReader()
                     If reader.HasRows Then
                         While reader.Read()
-                            DatabaseOutput.Add(reader.GetValue(0))
+                            If Not reader.IsDBNull(0) Then
+                                DatabaseOutput.Add(reader.GetValue(0))
+                            Else
+                                Return Nothing
+                            End If
                         End While
                         Return DatabaseOutput.ToArray
                     Else
@@ -37,6 +41,7 @@ Public Class DatabaseInterface
                 End Using
             End Using
         End Using
+        Return Nothing
     End Function
 
     Public Sub SaveValue(command As String)
