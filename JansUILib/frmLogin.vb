@@ -12,6 +12,7 @@ Public Class AuthLogin
 
     'Load Usernames
     Public Sub LoadUsernames()
+        CbxUsername.Items.Clear()
         CbxUsername.Items.AddRange(UserData.ReadValue("SELECT Username From UserAuth"))
     End Sub
 
