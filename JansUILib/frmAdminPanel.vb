@@ -286,6 +286,7 @@
 
     'Adds New User To Database
     Private Sub AddNewUser(sender As Object, e As EventArgs) Handles BtnAddUser.Click
+        Console.WriteLine(UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')"))
         If UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") Is Nothing And TbxUsername.Text <> "" And TbxPassword.Text <> "" Then
             UserData.SaveValue("INSERT INTO UserAuth(Username,PIN) VALUES('" & TbxUsername.Text & "','" & TbxPassword.Text & "')")
             UserData.SaveValue("INSERT INTO UserConfig(Accent) VALUES(-1)")
