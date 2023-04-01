@@ -265,7 +265,7 @@ Public Class BorderlessButton
         Me.Dock = DockStyle.Fill
         Me.FlatStyle = FlatStyle.Flat
         Me.Name = newText
-        Me.Font = New Font("Consolas", 12.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = ProgramData.UIfontSmall
     End Sub
 
     Private Sub AddItemToTicket(sender As Object, e As EventArgs) Handles Me.Click
