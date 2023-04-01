@@ -5,7 +5,7 @@
     '---Init Database
 
     'Database Connection
-    ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
+    ReadOnly UserData As New DatabaseInterface(ProgramData.UserDataPath)
 
     'Load Usernames
     Public Sub LoadUsernames()

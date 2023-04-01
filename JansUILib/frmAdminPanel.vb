@@ -12,9 +12,9 @@
     ReadOnly MenuCategories As New List(Of String)()
 
     'Database Variables Init
-    ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
-    ReadOnly MenuData As New DatabaseInterface(".\Menu.accdb")
-    ReadOnly CustomerData As New DatabaseInterface(".\CustomerData.accdb")
+    ReadOnly UserData As New DatabaseInterface(ProgramData.UserDataPath)
+    ReadOnly menuData As New DatabaseInterface(ProgramData.MenuDataPath)
+    ReadOnly CustomerData As New DatabaseInterface(ProgramData.CustomerDataPath)
 
     '---Winforms Init' 
 
