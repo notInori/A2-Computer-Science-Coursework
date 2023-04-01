@@ -14,6 +14,7 @@
     'Database Variables Init
     ReadOnly UserData As New DatabaseInterface(".\UserData.accdb")
     ReadOnly MenuData As New DatabaseInterface(".\Menu.accdb")
+    ReadOnly CustomerData As New DatabaseInterface(".\CustomerData.accdb")
 
     '---Winforms Init' 
 
