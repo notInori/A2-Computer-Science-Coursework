@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports System.Security.Cryptography
+Imports System.Web
 
 Public Class POSSystem
 
@@ -284,42 +286,77 @@ Public Class POSSystem
     End Sub
 End Class
 Public Class BorderlessButton
-        Inherits Button
+    Inherits Button
 
-        Private Property P_UID As Integer
+    Private Property P_UID As Integer
 
-        Public Property UID() As Integer
-            Get
-                Return P_UID
-            End Get
-            Set(ByVal value As Integer)
-                P_UID = value
-            End Set
-        End Property
+    Public Property UID() As Integer
+        Get
+            Return P_UID
+        End Get
+        Set(ByVal value As Integer)
+            P_UID = value
+        End Set
+    End Property
 
-        Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
-            MyBase.OnPaint(pevent)
-            Me.FlatAppearance.BorderSize = 0
-            Me.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60)
-            Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
-        End Sub
+    Protected Overrides Sub OnPaint(ByVal pevent As System.Windows.Forms.PaintEventArgs)
+        MyBase.OnPaint(pevent)
+        Me.FlatAppearance.BorderSize = 0
+        Me.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60)
+        Me.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 30)
+    End Sub
 
-        Public Sub New(newUID As Integer, newText As String)
-            Me.UID = newUID
-            Me.Text = newText
-            Me.BackColor = Color.FromArgb(40, 40, 40)
-            Me.ForeColor = Color.White
-            Me.Dock = DockStyle.Fill
-            Me.FlatStyle = FlatStyle.Flat
-            Me.Name = newText
-            Me.Font = New Font("Consolas", 12.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
-        End Sub
+    Public Sub New(newUID As Integer, newText As String)
+        Me.UID = newUID
+        Me.Text = newText
+        Me.BackColor = Color.FromArgb(40, 40, 40)
+        Me.ForeColor = Color.White
+        Me.Dock = DockStyle.Fill
+        Me.FlatStyle = FlatStyle.Flat
+        Me.Name = newText
+        Me.Font = New Font("Consolas", 12.0!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
+    End Sub
 
-        Private Sub AddItemToTicket(sender As Object, e As EventArgs) Handles Me.Click
-            POSSystem.SqlReadMenuValue("SELECT [Display Name] From Menu Where UID=" & P_UID)
-        End Sub
+    Private Sub AddItemToTicket(sender As Object, e As EventArgs) Handles Me.Click
+        POSSystem.SqlReadMenuValue("SELECT [Display Name] From Menu Where UID=" & P_UID)
+    End Sub
 
 
-    End Class
+End Class
 
+Public Class DatabaseInterface
+
+    '---Properties
+
+    'Definte Properties
+    Private _ConnectionString As String
+
+    'Property Functions
+    Private Sub SetpConnectionString(AutoPropertyValue As String)
+        _ConnectionString = AutoPropertyValue
+    End Sub
+
+    '---Init
+
+    'Init Function
+    Public Sub New(newFilePath As String)
+        SetpConnectionString("Provider=Microsoft.Ace.Oledb.12.0;Data Source=" & newFilePath) '.\UserData.accdb
+    End Sub
+
+    Public Function ReadValue(command As String)
+        Dim DatabaseOutput As New List(Of String)()
+        Using conn As New OleDbConnection(_ConnectionString)
+            conn.Open()
+            Dim cmd As New OleDbCommand(command, conn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            While reader.Read()
+                DatabaseOutput.Add(reader.GetValue(0))
+            End While
+            reader.Close()
+            conn.Close()
+        End Using
+        Dim ArrayOutput As Array = DatabaseOutput.ToArray
+        Return ArrayOutput
+    End Function
+End Class
 

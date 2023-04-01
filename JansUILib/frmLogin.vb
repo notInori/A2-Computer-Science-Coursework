@@ -11,6 +11,7 @@ Public Class AuthLogin
     Dim myReader As OleDbDataReader
     'Database Connection
     ReadOnly conn As New OleDbConnection("Provider=Microsoft.Ace.Oledb.12.0;Data Source=.\UserData.accdb")
+    Dim UserData As New DatabaseInterface(".\UserData.accdb")
 
     '---Database Functions
 
@@ -26,13 +27,14 @@ Public Class AuthLogin
 
     'Load Usernames
     Public Sub LoadUsernames()
-        conn.Open()
-        CbxUsername.Items.Clear()
-        Dim cmd As New OleDbCommand("SELECT Username FROM UserAuth", conn)
-        myReader = cmd.ExecuteReader
-        While myReader.Read
-            CbxUsername.Items.Add(myReader("Username"))
-        End While
+        'conn.Open()
+        'CbxUsername.Items.Clear()
+        'Dim cmd As New OleDbCommand("SELECT Username FROM UserAuth", conn)
+        'myReader = cmd.ExecuteReader
+        'While myReader.Read
+        '    CbxUsername.Items.Add(myReader("Username"))
+        'End While
+        CbxUsername.Items.AddRange(UserData.ReadValue("SELECT Username From UserAuth"))
     End Sub
 
     'Authenticates the User
