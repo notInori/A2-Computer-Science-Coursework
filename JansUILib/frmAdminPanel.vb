@@ -254,7 +254,7 @@
 
             'Display User Performance
             LblTotalHours.Text = UserData.ReadValue("SELECT [Total Hours] FROM UserStats WHERE UID=" & selectedUID)(0) & " Hrs"
-            End If
+        End If
     End Sub
 
     'Save Changes to User's Username and Password

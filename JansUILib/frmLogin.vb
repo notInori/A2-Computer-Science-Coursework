@@ -1,7 +1,4 @@
-﻿Imports System.Data.OleDb
-
-
-Public Class AuthLogin
+﻿Public Class AuthLogin
 
     '---Init'
 
@@ -77,7 +74,7 @@ Public Class AuthLogin
             pnlNotification.Dock = DockStyle.Fill
             pnlNotification.BringToFront()
         End If
-        If authUser(CbxUsername.Text, TbxPassword.Text) Then
+        If AuthUser(CbxUsername.Text, TbxPassword.Text) Then
             CbxUsername.Text = ""
             TbxPassword.Text = ""
             Me.Hide()

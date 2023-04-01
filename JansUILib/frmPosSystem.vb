@@ -1,5 +1,4 @@
-﻿Imports System.Data.OleDb
-Public Class POSSystem
+﻿Public Class POSSystem
 
     '---Init'
 
