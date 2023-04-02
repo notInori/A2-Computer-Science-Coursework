@@ -2,23 +2,25 @@
 
     '---Init'
 
-    'Client Info Variables
-    ReadOnly currentUser As String = "Admin"
-    Dim UID As Integer = 0
+    '---Variables Init
 
-    'Variables Init'
+    'Client Info Variables
+    Dim UID As Integer = 0
+    ReadOnly currentUser As String = "Admin"
+
+    'Variables
     Public accentColor As Color = Color.FromArgb(255, 255, 255)
     Dim selectedUID As New Integer
     ReadOnly MenuCategories As New List(Of String)()
 
-    'Database Variables Init
+    '---Database Connections Init
     ReadOnly UserData As New DatabaseInterface(ProgramData.UserDataPath)
     ReadOnly menuData As New DatabaseInterface(ProgramData.MenuDataPath)
     ReadOnly CustomerData As New DatabaseInterface(ProgramData.CustomerDataPath)
 
     '---Winforms Init' 
 
-    'Init tab system and load accent color
+    'Init Winform
     Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel)
             cntrl.Width = 0
@@ -218,15 +220,6 @@
         pnlNotification.Height = 0
     End Sub
 
-    'UI Accent Colour Picker
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
-        If Not ColorPicker.IsHandleCreated Then
-            Dim PnlColorPicker As New ColorPicker()
-            PnlColorPicker.Show()
-        End If
-        UpdateAccent()
-    End Sub
-
     '---Application Code
 
     'Users Screen
@@ -347,11 +340,13 @@
 
     'Settings Tab 
 
-    'User Logout Button
-    Private Sub UserLogOut(sender As Object, e As EventArgs) Handles BtnLogOut.Click
-        Me.Close()
-        AuthLogin.Show()
-        AuthLogin.LoadUsernames()
+    'UI Accent Colour Picker
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
+        If Not ColorPicker.IsHandleCreated Then
+            Dim PnlColorPicker As New ColorPicker()
+            PnlColorPicker.Show()
+        End If
+        UpdateAccent()
     End Sub
 
     'Save Admin Password Button
@@ -363,6 +358,13 @@
             Notification("Error: Field can not be empty.")
         End If
         tbxAdminPassword.Clear()
+    End Sub
+
+    'User Logout Button
+    Private Sub UserLogOut(sender As Object, e As EventArgs) Handles BtnLogOut.Click
+        Me.Close()
+        AuthLogin.Show()
+        AuthLogin.LoadUsernames()
     End Sub
 
     '---Watermark

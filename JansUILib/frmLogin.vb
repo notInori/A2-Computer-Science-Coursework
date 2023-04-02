@@ -2,9 +2,7 @@
 
     '---Init'
 
-    '---Init Database
-
-    'Database Connection
+    '---Database Connections Init
     ReadOnly UserData As New DatabaseInterface(ProgramData.UserDataPath)
 
     'Load Usernames

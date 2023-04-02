@@ -2,21 +2,36 @@
 
     '---Init'
 
+    '---Variables Init
+
     'Client Info Variables
     Dim UID As Integer = 0
     Public currentUser As String = "[USER]"
 
-    'Variables Init'
+    'Variables
     Public Shared accentColor As Color = Color.FromArgb(255, 255, 255)
     ReadOnly MenuCategories As New List(Of String)()
     Public CurrentTicketUID As Integer = 0
 
-    '---Database Variables Init
+    '---Database Connections Init
     ReadOnly UserData As New DatabaseInterface(ProgramData.UserDataPath)
     ReadOnly menuData As New DatabaseInterface(ProgramData.MenuDataPath)
     ReadOnly CustomerData As New DatabaseInterface(ProgramData.CustomerDataPath)
 
     '---Winforms Init
+
+    'Init Winform
+    Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel) 'Init Tab Option Widths
+            cntrl.Width = 0
+        Next
+        lblCurrentUser.Text = currentUser
+        LoadUserConfig() 'Load accents and settings
+        LoadMenuItems() 'Set menu categories in UI
+        ChangeTab(lblTabSel1, e) 'Load first program tab
+    End Sub
+
+    '---Database Functions
 
     'Load User Configs
     Private Sub LoadUserConfig()
@@ -63,17 +78,6 @@
         Next
         tblMenuTabsContainer.ColumnCount += 2
         tblMenuTabsContainer.Controls.Add(New Panel With {.Size = New Size(0, 1), .Margin = New Padding(0), .Dock = DockStyle.Fill, .BackColor = Color.Transparent}, CInt(tblMenuTabsContainer.ColumnCount), 1)
-    End Sub
-
-    'Init Winform
-    Private Sub POSSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        For Each cntrl As Control In TblTabsContainer.Controls.OfType(Of Panel) 'Init Tab Option Widths
-            cntrl.Width = 0
-        Next
-        lblCurrentUser.Text = currentUser
-        LoadUserConfig() 'Load accents and settings
-        LoadMenuItems() 'Set menu categories in UI
-        ChangeTab(lblTabSel1, e) 'Load first program tab
     End Sub
 
     '---UI Functions
@@ -129,32 +133,6 @@
 
     End Sub
 
-    'Patch bug where process not killed due to main form being hidden
-    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
-        Const WM_SYSCOMMAND As Integer = &H112
-        Const SC_CLOSE As Integer = &HF060
-        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_CLOSE Then
-            Application.Exit()
-        Else
-            MyBase.WndProc(m)
-        End If
-    End Sub
-
-    '---Notification Prompts
-
-    'Full screen notifications
-    Private Sub Notification(NotificationText As String)
-        lblNotificationInfo.Text = NotificationText
-        pnlNotification.Dock = DockStyle.Fill
-        pnlNotification.BringToFront()
-    End Sub
-
-    'Dismiss Notification Button
-    Private Sub DimissNotification(sender As Object, e As EventArgs) Handles btnContinueNotification.Click
-        pnlNotification.Dock = DockStyle.None
-        pnlNotification.Height = 0
-    End Sub
-
     '---Change Colourisable Accents in UI
 
     Public Sub UpdateAccent()
@@ -194,12 +172,38 @@
 
     End Sub
 
+    'Patch bug where process not killed due to main form being hidden
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+        Const WM_SYSCOMMAND As Integer = &H112
+        Const SC_CLOSE As Integer = &HF060
+        If m.Msg = WM_SYSCOMMAND AndAlso m.WParam.ToInt32() = SC_CLOSE Then
+            Application.Exit()
+        Else
+            MyBase.WndProc(m)
+        End If
+    End Sub
+
+    '---Notifications
+
+    'Full screen notifications
+    Private Sub Notification(NotificationText As String)
+        lblNotificationInfo.Text = NotificationText
+        pnlNotification.Dock = DockStyle.Fill
+        pnlNotification.BringToFront()
+    End Sub
+
+    'Dismiss Notification Button
+    Private Sub DimissNotification(sender As Object, e As EventArgs) Handles btnContinueNotification.Click
+        pnlNotification.Dock = DockStyle.None
+        pnlNotification.Height = 0
+    End Sub
+
     '---Application Code
 
     'Settings Tab 
 
     'UI Accent Colour Picker
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
+    Private Sub ColorPicker_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
         Button11.Focus()
         If Not ColorPicker.IsHandleCreated Then
             ColorPicker.Show()
