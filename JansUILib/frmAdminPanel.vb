@@ -26,10 +26,10 @@
             cntrl.Width = 0
         Next
         lblCurrentUser.Text = currentUser
-        LoadUserConfig()
-        ChangeTab(lblTabSel1, e)
-        LoadUsernames()
-        LoadMenuItems()
+        LoadUserConfig() 'Load saved user config
+        LoadUsernames() 'Load users list
+        LoadMenuItems() 'Load menu categories
+        ChangeTab(lblTabSel1, e) 'Change tab to tab1
     End Sub
 
     '---Database Functions
@@ -341,7 +341,7 @@
     'Settings Tab 
 
     'UI Accent Colour Picker
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
+    Private Sub ColorPicker_Click(sender As Object, e As EventArgs) Handles pnlColorPicker.Click
         If Not ColorPicker.IsHandleCreated Then
             Dim PnlColorPicker As New ColorPicker()
             PnlColorPicker.Show()

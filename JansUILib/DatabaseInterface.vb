@@ -3,7 +3,7 @@ Public Class DatabaseInterface
 
     '---Properties
 
-    'Definte Properties
+    'Define Properties
     Private _ConnectionString As String
 
     'Property Functions
