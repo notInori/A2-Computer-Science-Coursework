@@ -22,13 +22,9 @@
         End If
     End Function
 
-    '---Winforms Dragging
+    '---Winforms Init
 
-    'Winforms Variable Init'
-    Private Property MoveForm As Boolean
-    Private Property MoveForm_MousePositiion As Point
-
-    'Winforms Init' 
+    'Init
     Private Sub UserLogin_OnLoad(ByVal qsender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadUsernames()
         lblCurrentVersion.Text = ProgramData.ProgramVersion
@@ -36,6 +32,12 @@
         pnlWindowContents.Dock = DockStyle.Fill
         pnlWindowContents.BringToFront()
     End Sub
+
+    '---Winforms Dragging
+
+    'Winforms Variable Init'
+    Private Property MoveForm As Boolean
+    Private Property MoveForm_MousePositiion As Point
 
     'Winforms Dragging Events
     Private Sub WindowDragging_MouseDown(sender As Object, e As MouseEventArgs) Handles tblWindow.MouseDown, pnlBackground.MouseDown, pnlWindowContents.MouseDown, pnlGroupBoxInner.MouseDown, pnlGroupUsernameTextbox.MouseDown, lblUsername.MouseDown, TableLayoutPanel2.MouseDown, TableLayoutPanel1.MouseDown, lblTitle.MouseDown, Panel5.MouseDown, Panel314.MouseDown, lblShopName.MouseDown, Label33.MouseDown, Label2.MouseDown, lblCurrentVersion.MouseDown
