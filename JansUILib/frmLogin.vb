@@ -14,7 +14,9 @@
     'Authenticates the User
     Private Function AuthUser(ByVal username As String, ByVal password As String)
         Dim storedPassword = UserData.ReadValue("SELECT PIN FROM UserAuth WHERE (Username='" & username & "')")
-        storedPassword = storedPassword(0)
+        If storedPassword IsNot Nothing Then
+            storedPassword = storedPassword(0)
+        End If
         If password = CStr(storedPassword) And CStr(storedPassword) <> "" Then
             Return True 'Returns true if combination of username and password is correct
         Else
