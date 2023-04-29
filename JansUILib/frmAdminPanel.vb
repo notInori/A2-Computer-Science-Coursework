@@ -373,7 +373,7 @@
         lblTitle.Text = "POS SYSTEM | " & ProgramData.ProgramVersion & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub SaveNewMenuDetails(sender As Object, e As EventArgs) Handles Button3.Click
         Dim result As Single
         Dim price As String = ""
         If TbxItemPrice.Text.Chars(0) = "£" And TbxItemPrice.Text.Substring(1) = "" Then
