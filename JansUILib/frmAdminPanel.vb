@@ -288,7 +288,6 @@
 
     'Adds New User To Database
     Private Sub AddNewUser(sender As Object, e As EventArgs) Handles BtnAddUser.Click
-        Console.WriteLine(UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')"))
         If UserData.ReadValue("SELECT UID FROM UserAuth WHERE (Username='" & TbxUsername.Text.ToString & "')") Is Nothing And TbxUsername.Text <> "" And TbxPassword.Text <> "" Then
             UserData.SaveValue("INSERT INTO UserAuth(Username,PIN) VALUES('" & TbxUsername.Text & "','" & TbxPassword.Text & "')")
             UserData.SaveValue("INSERT INTO UserConfig(Accent) VALUES(-1)")
@@ -379,15 +378,14 @@
         Dim price As String = ""
         If TbxItemPrice.Text.Chars(0) = "£" And TbxItemPrice.Text.Substring(1) = "" Then
             price = 0
-        ElseIf Not TbxItemPrice.Text.Chars(0) = "£" And TbxItemPrice.Text.Substring(1) = "" Then
-            price = TbxItemPrice.Text
-        Else
+        ElseIf TbxItemPrice.Text.Chars(0) = "£" And Not TbxItemPrice.Text.Substring(1) = "" Then
             price = TbxItemPrice.Text.Substring(1)
+        Else
+            price = TbxItemPrice.Text
         End If
-
         If Single.TryParse(price, result) Or Int32.TryParse(price, result) Then
             If TbxDisplayName.Text <> Nothing And TbxItemPrice.Text <> Nothing And TbxCategory.Text <> Nothing Then
-                menuData.SaveValue("UPDATE MENU SET [Display Name]='" & TbxDisplayName.Text & "'," & "[Category]='" & TbxCategory.Text & "'," & "[Price]='" & price & "'" & "WHERE UID=" & LblMenuItemUID.Text)
+                menuData.SaveValue("UPDATE MENU SET [Display Name]='" & TbxDisplayName.Text & "'," & "[Category]='" & TbxCategory.Text & "'," & "[Price]=" & Decimal.Parse(price) & " WHERE UID=" & LblMenuItemUID.Text)
                 Notification("Updated item information successfully!")
             End If
         Else
