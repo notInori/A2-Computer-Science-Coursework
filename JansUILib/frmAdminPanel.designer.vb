@@ -1520,8 +1520,8 @@ Partial Class AdminPanel
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.pnlMainPage)
         Me.Panel1.Controls.Add(Me.pnlMenuPage)
+        Me.Panel1.Controls.Add(Me.pnlMainPage)
         Me.Panel1.Controls.Add(Me.pnlPerformancePage)
         Me.Panel1.Controls.Add(Me.PnlTicketsPage)
         Me.Panel1.Controls.Add(Me.pnlConfirmation)
@@ -1545,12 +1545,11 @@ Partial Class AdminPanel
         Me.pnlMainPage.Controls.Add(Me.TableLayoutPanel13)
         Me.pnlMainPage.Controls.Add(Me.tblGroupBox)
         Me.pnlMainPage.Controls.Add(Me.Button2)
-        Me.pnlMainPage.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMainPage.Location = New System.Drawing.Point(0, 0)
+        Me.pnlMainPage.Location = New System.Drawing.Point(1294, 799)
         Me.pnlMainPage.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlMainPage.Name = "pnlMainPage"
         Me.pnlMainPage.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlMainPage.Size = New System.Drawing.Size(1434, 809)
+        Me.pnlMainPage.Size = New System.Drawing.Size(140, 10)
         Me.pnlMainPage.TabIndex = 6
         '
         'TableLayoutPanel54
@@ -4627,11 +4626,12 @@ Partial Class AdminPanel
         Me.pnlMenuPage.Controls.Add(Me.TableLayoutPanel36)
         Me.pnlMenuPage.Controls.Add(Me.TableLayoutPanel10)
         Me.pnlMenuPage.Controls.Add(Me.TableLayoutPanel3)
-        Me.pnlMenuPage.Location = New System.Drawing.Point(1231, 774)
+        Me.pnlMenuPage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlMenuPage.Location = New System.Drawing.Point(0, 0)
         Me.pnlMenuPage.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlMenuPage.Name = "pnlMenuPage"
         Me.pnlMenuPage.Padding = New System.Windows.Forms.Padding(5)
-        Me.pnlMenuPage.Size = New System.Drawing.Size(203, 35)
+        Me.pnlMenuPage.Size = New System.Drawing.Size(1434, 809)
         Me.pnlMenuPage.TabIndex = 7
         '
         'TableLayoutPanel36

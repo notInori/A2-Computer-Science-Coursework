@@ -374,4 +374,25 @@
         lblTitle.Text = "POS SYSTEM | " & ProgramData.ProgramVersion & " | " & currentUser & " | " & DateTime.Now.ToString("HH:mm:ss") & " | " & DateTime.Now.ToString("dd MMM. yyyy")
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim result As Single
+        Dim price As String = ""
+        If TbxItemPrice.Text.Chars(0) = "£" And TbxItemPrice.Text.Substring(1) = "" Then
+            price = 0
+        ElseIf Not TbxItemPrice.Text.Chars(0) = "£" And TbxItemPrice.Text.Substring(1) = "" Then
+            price = TbxItemPrice.Text
+        Else
+            price = TbxItemPrice.Text.Substring(1)
+        End If
+
+        If Single.TryParse(price, result) Or Int32.TryParse(price, result) Then
+            If TbxDisplayName.Text <> Nothing And TbxItemPrice.Text <> Nothing And TbxCategory.Text <> Nothing Then
+                menuData.SaveValue("UPDATE MENU SET [Display Name]='" & TbxDisplayName.Text & "'," & "[Category]='" & TbxCategory.Text & "'," & "[Price]='" & price & "'" & "WHERE UID=" & LblMenuItemUID.Text)
+                Notification("Updated item information successfully!")
+            End If
+        Else
+            Notification("Error: The price price is invalid!")
+        End If
+
+    End Sub
 End Class
