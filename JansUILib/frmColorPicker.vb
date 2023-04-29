@@ -205,10 +205,13 @@
         Label9.Text = Math.Round(lvalue * 100, 0)
 
         'Calculate RGB value from HSL and Pass To Main Program
-        POSSystem.accentColor = HlsToRgb(hvalue, lvalue, svalue)
-        POSSystem.UpdateAccent()
-        AdminPanel.accentColor = HlsToRgb(hvalue, lvalue, svalue)
-        AdminPanel.UpdateAccent()
+        If POSSystem.IsHandleCreated Then
+            POSSystem.accentColor = HlsToRgb(hvalue, lvalue, svalue)
+            POSSystem.UpdateAccent()
+        Else
+            AdminPanel.accentColor = HlsToRgb(hvalue, lvalue, svalue)
+            AdminPanel.UpdateAccent()
+        End If
         UpdateAccent()
     End Sub
 
