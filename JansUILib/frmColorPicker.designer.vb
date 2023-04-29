@@ -100,7 +100,7 @@ Partial Class ColorPicker
         Me.tblWindow.Name = "tblWindow"
         Me.tblWindow.RowCount = 1
         Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 239.0!))
+        Me.tblWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202.0!))
         Me.tblWindow.Size = New System.Drawing.Size(394, 202)
         Me.tblWindow.TabIndex = 2
         '
