@@ -389,7 +389,7 @@
                 Notification("Updated item information successfully!")
             End If
         Else
-            Notification("Error: The price price is invalid!")
+            Notification("Error: The price '" + price + "' is invalid!")
         End If
 
     End Sub
